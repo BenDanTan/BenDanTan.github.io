@@ -57,6 +57,18 @@ body {
     text-decoration: none;
 }
 
+.navContent-current {
+    color: red;
+    text-decoration: none;
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+.navContent-current:hover {
+    text-decoration: none;
+    color: white;
+}
+
 h1 {
     color: white;
     text-align: left;
@@ -72,6 +84,11 @@ h3 {
     color: white;
     text-align: left; 
     text-indent: 15%;
+}
+
+h4 {
+    color: white;
+    text-decoration: none;
 }
 
 p {
@@ -161,4 +178,18 @@ p {
 
 .infoButton:visited {
     text-decoration: none;
+}
+
+.linkImage {
+    max-width: 48px;
+    max-height: 48px;
+}
+
+.footer-col {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
 }
