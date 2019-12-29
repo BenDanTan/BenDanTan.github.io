@@ -1,0 +1,155 @@
+.page-container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body {
+    background-color: #333333;
+    font: Proxima Nova;
+    overflow-x: hidden;
+}
+
+#page {
+    transition: margin-left .5s;
+}
+
+.closeButton {
+    position: absolute;
+    color: white ;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openButton {
+    color: white;
+    position: absolute;
+    font-size: 36px;
+    padding: 36px;
+    z-index: 1;
+}
+
+.nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #121212;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.navContent {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+.navContent:hover {
+    color: red;
+    text-decoration: none;
+}
+
+h1 {
+    color: white;
+    text-align: left;
+    text-indent: 15%;
+    font-size: 72px;
+}
+
+h2 {
+    color: white;
+}
+
+h3 {
+    color: white;
+    text-align: left; 
+    text-indent: 15%;
+}
+
+p {
+    color: white;
+}
+
+.title-row {
+    height: 100vh;
+}
+
+.title-row-col {
+    display: table;
+    height: 100vh;
+    line-height: 100vh;
+    text-align: center;
+}
+
+.title-row-span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.subtitle-row {
+    height: 50vh;
+    overflow: hidden;
+}
+
+.subtitle-row-image-left {
+    overflow-x: hidden;
+    object-fit: cover;
+    margin-left: 0px;
+    display: block;
+    object-fit: contain;
+    max-width: 100%;
+}
+
+.subtitle-row-image-right {
+    overflow-x: hidden;
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    offset-position: left 5px;
+}
+
+.subtitle-row-col {
+    display: table;
+    height: 50vh;
+    text-align: left;
+    text-indent: 15%;
+}
+
+.subtitle-row-span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.infoButton {
+    background: inherit;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    text-align: center;
+    padding: 10px;
+    width: 128px;
+    height: 64px;
+    border-radius: 32px;
+    transition: 0.3s;
+    margin-left: 15%;
+    padding-bottom: 13px;
+    line-height: 25vh;
+}
+
+.infoButton:hover {
+    color: red;
+    border-color: red;
+    text-decoration: none;
+}
+
+.infoButton:visited {
+    text-decoration: none;
+}
