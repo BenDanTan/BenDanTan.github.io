@@ -7,3 +7,7 @@ function openNav() {
     document.getElementById("sidenav").style.width = "0";
     document.getElementById("page").style.marginLeft= "0";
   }
+
+AOS.init({
+  duration: 1200,
+})
