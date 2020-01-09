@@ -1,0 +1,195 @@
+.page-container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body {
+    background-color: #333333;
+    font: Proxima Nova;
+    overflow-x: hidden;
+}
+
+#page {
+    transition: margin-left .5s;
+}
+
+.closeButton {
+    position: absolute;
+    color: white ;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openButton {
+    color: white;
+    position: absolute;
+    font-size: 36px;
+    padding: 36px;
+    z-index: 1;
+}
+
+.nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: #121212;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.navContent {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+.navContent:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.navContent-current {
+    color: red;
+    text-decoration: none;
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+.navContent-current:hover {
+    text-decoration: none;
+    color: white;
+}
+
+h1 {
+    color: white;
+    text-align: left;
+    text-indent: 15%;
+    font-size: 72px;
+}
+
+h2 {
+    color: white;
+}
+
+h3 {
+    color: white;
+    text-align: left; 
+    text-indent: 15%;
+}
+
+h4 {
+    color: white;
+    text-decoration: none;
+}
+
+p {
+    color: white;
+}
+
+.row-divider {
+    color: #5e5e5e;
+    background-color: #5e5e5e;
+    height: 1px;
+    border-width: 0;
+    width: 100%;
+    margin: 0%;
+}
+
+.title-row {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.title-row-col {
+    display: table;
+    height: 100vh;
+    line-height: 100vh;
+    text-align: center;
+}
+
+.title-row-span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.subtitle-row {
+    height: 50vh;
+    overflow: hidden;
+}
+
+.image-container {
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: white;
+    overflow: hidden;
+    margin: 0px;
+}
+
+.image-container img {
+    object-fit: contain;
+    height: 100%;
+    max-width: 100%;
+}
+
+.subtitle-row-col {
+    display: table;
+    height: 50vh;
+    text-align: left;
+    text-indent: 10%;
+}
+
+.subtitle-row-span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.infoButton {
+    background: inherit;
+    color: white;
+    border-color: white;
+    border-style: solid;
+    text-align: center;
+    padding: 10px;
+    width: 128px;
+    height: 64px;
+    border-radius: 32px;
+    transition: 0.3s;
+    margin-left: 10%;
+    padding-bottom: 13px;
+    line-height: 25vh;
+}
+
+.infoButton:hover {
+    color: red;
+    border-color: red;
+    text-decoration: none;
+}
+
+.infoButton:visited {
+    text-decoration: none;
+}
+
+.linkImage {
+    max-width: 48px;
+    max-height: 48px;
+}
+
+.footer-col {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
