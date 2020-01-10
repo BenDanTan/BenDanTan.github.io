@@ -12,3 +12,15 @@ function loadPage() {
   document.getElementById("titleText").style.opacity = "1";
   document.getElementById("titleImage").style.opacity = "1";
 }
+
+function hoverBubble(title) {
+  document.getElementById(title).style.opacity = "0.5";
+}
+
+function unhoverBubble(title) {
+  document.getElementById(title).style.opacity = "1";
+}
+
+function clickBubble(title) {
+  window.location = title + "/index.html"
+}
