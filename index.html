@@ -37,8 +37,7 @@
             <span onclick="openNav()" class="openButton" id="openButton">
                 &#9776;
             </span>
-        <div class="container-fluid page-container" id="page">
-            
+        <div class="container-fluid page-container" id="page">            
             <div class="row title-row">
                 <div class="col-sm-6 title-row-col">
                     
@@ -51,76 +50,98 @@
                     <img src="images/deviceImageEdit.jpg" alt="" class="title-row-image" id="titleImage">
                 </div>
             </div>
-            <hr noshade="noshade" class="row-divider">
+            <!--<hr noshade="noshade" class="row-divider">-->
             <!--Convergence Resource Center-->
-            <div class="row subtitle-row" data-aos="fade-left">
-                <div class="col-sm-5 image-container">
-                    <img src="images/Convergence.webp" alt="">
+            <div class="row bubble-row" data-aos="fade-left" id="Convergence" onmouseover='hoverBubble("Convergence")' onmouseout='unhoverBubble("Convergence")' onclick='clickBubble("Convergence")'>
+                <div class="col-sm-3 bubble-image-col">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <img src="images/Convergence.webp" alt="" class="bubble-image">
+                        </td>
+                    </table>
                 </div>
-                <div class="col-sm-7 subtitle-row-col">
-                    <span class="subtitle-row-span">
-                        <h2>Convergence Resource Center</h2>
-                        <p>My second ASP.NET project, product of Code the Way 2019</p>
-                        <a href="CodeTheWay2018.html" class="infoButton">Learn More</a>
-                    </span>
+                <div class="col-sm-9 bubble-text">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2>Convergence Resource Center</h2>
+                            <p>My second ASP.NET project, product of Code the Way 2019</p>
+                        </td>
+                    </table>
                 </div>
             </div>
-            <hr noshade="noshade" class="row-divider">
             <!--Milliman-->
-            <div class="row subtitle-row" data-aos="fade-right">
-                <div class="col-sm-7 subtitle-row-col">
-                    <span class="subtitle-row-span">
-                        <h2>Milliman</h2>
-                        <p>A form filling web application developed for Milliman</p>
-                        <a href="CodeTheWay2018.html" class="infoButton">Learn More</a>
-                    </span>
+            <div class="row bubble-row" data-aos="fade-right" id="Milliman" onmouseover='hoverBubble("Milliman")' onmouseout='unhoverBubble("Milliman")' onclick='clickBubble("Milliman")'>
+                <div class="col-sm-9 bubble-text">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2>Milliman</h2>
+                            <p>A form filling web application developed for Milliman</p> 
+                        </td>
+                    </table>
                 </div>
-                <div class="col-sm-5 image-container">
-                    <img src="images/Milliman.png" alt="">
+                <div class="col-sm-3 bubble-image-col">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <img src="images/Milliman.png" alt="" class="bubble-image">
+                        </td>
+                    </table>
                 </div>
             </div>
-            <hr noshade="noshade" class="row-divider">
             <!--Heroes for Healthcare-->
-            <div class="row subtitle-row" data-aos="fade-left">
-                <div class="col-sm-5 image-container">
-                    <img src="images/Heroes.jpg" alt="">
+            <div class="row bubble-row" data-aos="fade-left" id="Heroes" onmouseover='hoverBubble("Heroes")' onmouseout='unhoverBubble("Heroes")' onclick='clickBubble("Heroes")'>
+                <div class="col-sm-3 bubble-image-col">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <img src="images/Heroes.jpg" alt="" class="bubble-image">
+                        </td>
+                    </table>
                 </div>
-                <div class="col-sm-7 subtitle-row-col">
-                    <span class="subtitle-row-span">
-                        <h2>Heroes for Healthcare</h2>
-                        <p>My first product written in MVC</p>
-                        <a href="CodeTheWay2018.html" class="infoButton">Learn More</a>
-                    </span>
-                </div>
-            </div>
-            <hr noshade="noshade" class="row-divider">
-            <!--Code The Way Bootcamp-->
-            <div class="row subtitle-row" data-aos="fade-right">
-                <div class="col-sm-7 subtitle-row-col">
-                    <span class="subtitle-row-span">
-                        <h2>Code the Way Bootcamp</h2>
-                        <p>Learning and using ASP.NET and MVC for the first time</p>
-                        <a href="CodeTheWay2018.html" class="infoButton">Learn More</a>
-                    </span>
-                </div>
-                <div class="col-sm-5 image-container">
-                    <img src="images/CodeTheWayLogo.png" alt="">
+                <div class="col-sm-9 bubble-text">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2>Heroes for Healthcare</h2>
+                            <p>My first product written in MVC</p>
+                        </td>
+                    </table>
                 </div>
             </div>
-            <hr noshade="noshade" class="row-divider">
+            <!--Code the Way Bootcamp-->
+            <div class="row bubble-row" data-aos="fade-right" id="CTW" onmouseover='hoverBubble("CTW")' onmouseout='unhoverBubble("CTW")' onclick='clickBubble("CTW")'>
+                <div class="col-sm-9 bubble-text">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2>Code the Way Bootcamp</h2>
+                            <p>Learning and using ASP.NET and MVC for the first time</p> 
+                        </td>
+                    </table>
+                </div>
+                <div class="col-sm-3 bubble-image-col">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <img src="images/CodeTheWayLogo.png" alt="" class="bubble-image">
+                        </td>
+                    </table>
+                </div>
+            </div>
             <!--In Progress-->
-            <div class="row subtitle-row" data-aos="fade-left">
-                <div class="col-sm-5 image-container">
-                    <img src="images/InProgress.png" alt="">
+            <div class="row bubble-row" data-aos="fade-left" id="InProgress" onmouseover='hoverBubble("InProgress")' onmouseout='unhoverBubble("InProgress")' onclick='clickBubble("InProgress")'>
+                <div class="col-sm-3 bubble-image-col">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <img src="images/Hourglass.jpg" alt="" class="bubble-image">
+                        </td>
+                    </table>
                 </div>
-                <div class="col-sm-7 subtitle-row-col">
-                    <span class="subtitle-row-span">
-                        <h2>Projects In Progress</h2>
-                        <p>Projects to be completed in the near future</p>
-                        <a href="CodeTheWay2018.html" class="infoButton">Learn More</a>
-                    </span>
+                <div class="col-sm-9 bubble-text">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2>Projects in Progress</h2>
+                            <p>Projects to be completed in the near future</p>
+                        </td>
+                    </table>
                 </div>
             </div>
+            <!--Footer-->
             <hr noshade="noshade" class="row-divider">
             <div class="row">
                 <div class="col-sm-5 footer-col">
