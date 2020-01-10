@@ -4,10 +4,15 @@
         <title>Benjamin Tan</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/stylesheet.css" />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="assets/scripts.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
     </head>
-    <body>
+    <body onload="loadPage()">
+        <script>
+            AOS.init();
+        </script>
         <div id="sidenav" class="nav">
             <span onclick="closeNav()" class="closeButton" id="closeButton">
                 &times;
@@ -37,21 +42,19 @@
             <div class="row title-row">
                 <div class="col-sm-6 title-row-col">
                     
-                    <span class="title-row-span">
+                    <span class="title-row-span" id="titleText">
                         <h1>Portfolio</h1>
                         <h3>Benjamin Tan</h3>
                     </span>
                 </div>
                 <div class="col-sm-6">
-                    <img src="images/deviceImageEdit.jpg" alt="" class="title-row">
+                    <img src="images/deviceImageEdit.jpg" alt="" class="title-row-image" id="titleImage">
                 </div>
-                
             </div>
             <hr noshade="noshade" class="row-divider">
             <!--Convergence Resource Center-->
-            <div class="row subtitle-row">
-                
-                <div class="col-sm-5 image-container" aos="fade-up">
+            <div class="row subtitle-row" data-aos="fade-left">
+                <div class="col-sm-5 image-container">
                     <img src="images/Convergence.webp" alt="">
                 </div>
                 <div class="col-sm-7 subtitle-row-col">
@@ -64,7 +67,7 @@
             </div>
             <hr noshade="noshade" class="row-divider">
             <!--Milliman-->
-            <div class="row subtitle-row">
+            <div class="row subtitle-row" data-aos="fade-right">
                 <div class="col-sm-7 subtitle-row-col">
                     <span class="subtitle-row-span">
                         <h2>Milliman</h2>
@@ -78,7 +81,7 @@
             </div>
             <hr noshade="noshade" class="row-divider">
             <!--Heroes for Healthcare-->
-            <div class="row subtitle-row">
+            <div class="row subtitle-row" data-aos="fade-left">
                 <div class="col-sm-5 image-container">
                     <img src="images/Heroes.jpg" alt="">
                 </div>
@@ -92,7 +95,7 @@
             </div>
             <hr noshade="noshade" class="row-divider">
             <!--Code The Way Bootcamp-->
-            <div class="row subtitle-row">
+            <div class="row subtitle-row" data-aos="fade-right">
                 <div class="col-sm-7 subtitle-row-col">
                     <span class="subtitle-row-span">
                         <h2>Code the Way Bootcamp</h2>
@@ -106,7 +109,7 @@
             </div>
             <hr noshade="noshade" class="row-divider">
             <!--In Progress-->
-            <div class="row subtitle-row">
+            <div class="row subtitle-row" data-aos="fade-left">
                 <div class="col-sm-5 image-container">
                     <img src="images/InProgress.png" alt="">
                 </div>
@@ -116,6 +119,24 @@
                         <p>Projects to be completed in the near future</p>
                         <a href="CodeTheWay2018.html" class="infoButton">Learn More</a>
                     </span>
+                </div>
+            </div>
+            <hr noshade="noshade" class="row-divider">
+            <div class="row">
+                <div class="col-sm-5 footer-col">
+                    <a href="https://www.linkedin.com/in/bendantan/">
+                        <img src="images/linkedin.png" alt="" class="linkImage">
+                    </a>
+                </div>
+                <div class="col-sm-2 footer-col">
+                    <a href="https://www.linkedin.com/in/bendantan/">
+                        <h4>Contact Me</h4>
+                    </a>
+                </div>
+                <div class="col-sm-5 footer-col">
+                    <a href="mailto:BenDanTan@gmail.com">
+                        <img src="images/gmail.png" alt="" class="linkImage">
+                    </a>
                 </div>
             </div>
         </div>

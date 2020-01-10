@@ -109,6 +109,13 @@ p {
     overflow: hidden;
 }
 
+.title-row-image {
+    height : 100vh;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 5.0s;
+}
+
 .title-row-col {
     display: table;
     height: 100vh;
@@ -119,6 +126,8 @@ p {
 .title-row-span {
     display: table-cell;
     vertical-align: middle;
+    opacity: 0;
+    transition: opacity 5.0s;
 }
 
 .subtitle-row {
