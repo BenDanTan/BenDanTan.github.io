@@ -113,7 +113,7 @@ p {
     height : 100vh;
     overflow: hidden;
     opacity: 0;
-    transition: opacity 5.0s;
+    transition: opacity 1.0s;
 }
 
 .title-row-col {
@@ -127,7 +127,7 @@ p {
     display: table-cell;
     vertical-align: middle;
     opacity: 0;
-    transition: opacity 5.0s;
+    transition: opacity 1.0s;
 }
 
 .subtitle-row {
@@ -200,5 +200,51 @@ p {
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 100%;
+}
+
+
+/*The new stuff*/
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.bubble-row {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    height: 28vh;
+    width: 90vw;
+    border: solid;
+    border-color: white;
+    background-color: #121212;
+    border-radius: 3em;
+    overflow: hidden;
+    color: #121212;
+    opacity: 1;
+    transition: opacity 10.0s;
+}
+
+.bubble-image-col {
+    background:white;
+    text-align: center;
+}
+
+.bubble-image {
+    object-fit: contain;
+    max-height: 25vh;
+    max-width: 100%;
+}
+
+.bubble-text {
+    align-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.bubble-table {
+    height: 100%;
     width: 100%;
 }
