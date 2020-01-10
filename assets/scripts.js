@@ -3,11 +3,12 @@ function openNav() {
     document.getElementById("page").style.marginLeft = "425px";
   }
   
-  function closeNav() {
+function closeNav() {
     document.getElementById("sidenav").style.width = "0";
     document.getElementById("page").style.marginLeft= "0";
   }
 
-AOS.init({
-  duration: 1200,
-})
+function loadPage() {
+  document.getElementById("titleText").style.opacity = "1";
+  document.getElementById("titleImage").style.opacity = "1";
+}
