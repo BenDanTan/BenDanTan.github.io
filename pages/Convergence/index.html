@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Benjamin Tan</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../assets/css/stylesheet.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="../../assets/scripts.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+    </head>
+    <body onload="loadPage()">
+        <script>
+            AOS.init();
+        </script>
+        <div id="sidenav" class="nav">
+            <span onclick="closeNav()" class="closeButton" id="closeButton">
+                <i class="material-icons">close</i>
+            </span>
+            <span onclick="closeNav()" class="homeButton">
+                <i class="material-icons">home</i>
+            </span>
+            <div>
+                <a href="/Repositories/WebPortfolio/pages/Convergence/index.html" class="navContent">Convergence Resource Center</a>
+                <br>
+                <br>
+                <a href="/Repositories/WebPortfolio/pages/Milliman/index.html" class="navContent">Milliman</a>
+                <br>
+                <br>
+                <a href="/Repositories/WebPortfolio/pages/Heroes/index.html" class="navContent">Heroes for Healthcare</a>
+                <br>
+                <br>
+                <a href="/Repositories/WebPortfolio/pages/CTW/index.html" class="navContent">Code the Way Bootcamp</a>
+                <br>
+                <br>
+                <a href="/Repositories/WebPortfolio/pages/InProgress/index.html" class="navContent">Current Projects</a>
+                <br>
+                <br>
+                <a href="/Repositories/WebPortfolio/pages/About/index.html" class="navContent">About Me</a>
+
+            </div>
+        </div>
+        <span onclick="openNav()" class="openButton" id="openButton">
+            &#9776;
+        </span>
+        <div class="container-fluid page-container" id="page">            
+            <div class="row title-row">
+                <div class="col-12 title-row-col">
+                    <span class="title-row-span" id="titleText">
+                        <h1>Convergence Resource Center</h1>
+                        <h3>My second ASP.NET project, product of Code the Way 2019</h3>
+                    </span>
+                </div>
+            </div>
+            <div class="row subpage-row" data-aos="fade-up">
+                <div class="col-6">
+                    <div class="subpage-col">
+                        <div class="subpage-image-container">
+                            <table class="bubble-table">
+                                <td class="align-middle">
+                                    <img src="../../images/CodeSymbol.png" class="subpage-image">
+                                </td>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="subpage-col">
+                        <div class="subpage-image-container">
+                            <table class="bubble-table">
+                                <td class="align-middle">
+                                    <img src="../../images/ReflectionBubble.png" class="subpage-image">
+                                </td>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
