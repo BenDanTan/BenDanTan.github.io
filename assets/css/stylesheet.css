@@ -3,6 +3,8 @@
     padding-right: 0;
     margin-right: auto;
     margin-left: auto;
+    visibility: visible;
+    transition: 0.5s;
 }
 
 body {
@@ -30,6 +32,15 @@ body {
     font-size: 36px;
     padding: 36px;
     z-index: 1;
+}
+
+.homeButton {
+    position: absolute;
+    color: white ;
+    top: 0;
+    right: 75px;
+    font-size: 36px;
+    margin-left: 50px;
 }
 
 .nav {
@@ -107,6 +118,8 @@ p {
 .title-row {
     height: 100vh;
     overflow: hidden;
+    opacity: 1;
+    transition: 0.3s;
 }
 
 .title-row-image {
@@ -144,13 +157,27 @@ p {
     width: 100%;
 }
 
-
-/*The new stuff*/
-
 ::-webkit-scrollbar {
     width: 0px;
 }
+/*
+::-webkit-scrollbar-thumb {
+    background:#121212;
+    opacity: 0.25;
+    height: 5px;
+    border-radius: 3vh;
+    transition: 5s;
+}
 
+::-webkit-scrollbar-thumb:hover {
+    opacity: 1;
+    background: red;
+}
+
+::-webkit-scrollbar-track {
+    opacity: 0;
+}
+*/
 .bubble-row {
     margin-left: 5vw;
     margin-right: 5vw;
@@ -161,11 +188,10 @@ p {
     border: solid;
     border-color: white;
     background-color: #121212;
-    border-radius: 3em;
+    border-radius: 1em;
     overflow: hidden;
     color: #121212;
     opacity: 1;
-    transition: opacity 10.0s;
 }
 
 .bubble-image-col {
@@ -188,4 +214,37 @@ p {
 .bubble-table {
     height: 100%;
     width: 100%;
+}
+
+.subpage-row {
+    margin-left: 9vw;
+    margin-right: 9vw;
+}
+
+.subpage-col {
+    margin-left: 6vw;
+    margin-right: 6vw;
+    margin-top: 5vh;
+    margin-bottom:5vh;
+    height: 75vh;
+    border: solid;
+    border-color: white;
+    background-color: #121212;
+    border-radius: 1em;
+    overflow: hidden;
+    color: #121212;
+    opacity: 1;
+}
+
+.subpage-image-container {
+    height: 30vh;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+}
+
+.subpage-image {
+    object-fit: contain;
+    max-height: 25vh;
+    max-width: 100%;
 }
