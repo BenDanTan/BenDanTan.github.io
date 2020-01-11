@@ -8,7 +8,7 @@ function closeNav() {
     document.getElementById("page").style.marginLeft= "0";
   }
 
-function loadPage() {
+function loadMainPage() {
   document.getElementById("titleText").style.opacity = "1";
   document.getElementById("titleImage").style.opacity = "1";
 
@@ -16,12 +16,35 @@ function loadPage() {
     if ($(this).scrollTop() > 100) {
        document.getElementById("page").style.backgroundColor = "#121212"
        document.getElementById("header").style.opacity = "0"
+       document.getElementById("sidenav").style.backgroundColor = "#333333"
        $('.bubble-text').css('background-color','#333333')
     }
     if ($(this).scrollTop() < 100) {
        document.getElementById("page").style.backgroundColor = "#333333"
        document.getElementById("header").style.opacity = "1"
+       document.getElementById("sidenav").style.backgroundColor = "#121212"
        $('.bubble-text').css('background-color','#121212')
+    }
+ })
+}
+
+function loadProjectPage() {
+  document.getElementById("titleText").style.opacity = "1";
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+       document.getElementById("page").style.backgroundColor = "#121212"
+       document.getElementById("header").style.opacity = "0"
+       document.getElementById("sidenav").style.backgroundColor = "#333333"
+       $('.ProjectPage-col').css('background-color','#333333')
+       $('.ProjectPage-bubble-row').css('background-color','#333333')
+    }
+    if ($(this).scrollTop() < 100) {
+       document.getElementById("page").style.backgroundColor = "#333333"
+       document.getElementById("header").style.opacity = "1"
+       document.getElementById("sidenav").style.backgroundColor = "#121212"
+       $('.ProjectPage-col').css('background-color','#121212')
+       $('.ProjectPage-bubble-row').css('background-color','#121212')
     }
  })
 }
@@ -34,7 +57,10 @@ function unhoverBubble(title) {
   document.getElementById(title).style.opacity = "1";
 }
 
-function clickBubble(title) {
-  window.location = "pages/" + title +"/index.html"
+function clickBubble(address) {
+  window.location = address
 }
 
+function goHome() {
+  window.location = "http://bendantan.github.io"
+}

@@ -91,6 +91,11 @@ h2 {
     color: white;
 }
 
+.h2Subpage {
+    text-align: center;
+    font-size: 3vw;
+}
+
 h3 {
     color: white;
     text-align: left; 
@@ -104,6 +109,7 @@ h4 {
 
 p {
     color: white;
+    font-size: 24px;
 }
 
 .row-divider {
@@ -194,6 +200,10 @@ p {
     opacity: 1;
 }
 
+/*.bubble-row:hover {
+    transform: scale(1.5);
+}*/
+
 .bubble-image-col {
     background:white;
     text-align: center;
@@ -216,17 +226,16 @@ p {
     width: 100%;
 }
 
-.subpage-row {
-    margin-left: 9vw;
-    margin-right: 9vw;
+.ProjectPage-row {
+    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
-.subpage-col {
-    margin-left: 6vw;
-    margin-right: 6vw;
+.ProjectPage-col {
+    margin-left: 3vw;
+    margin-right: 3vw;
     margin-top: 5vh;
     margin-bottom:5vh;
-    height: 75vh;
     border: solid;
     border-color: white;
     background-color: #121212;
@@ -236,15 +245,38 @@ p {
     opacity: 1;
 }
 
-.subpage-image-container {
+.ProjectPage-image-container {
     height: 30vh;
     width: 100%;
     background-color: white;
     text-align: center;
 }
 
-.subpage-image {
+.ProjectPage-image {
     object-fit: contain;
     max-height: 25vh;
     max-width: 100%;
+}
+
+.ProjectPage-text-container {
+    height: 10vh;
+    width: 100%;
+    text-align: center;
+}
+
+.ProjectPage-bubble-row {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    padding: 5px;
+    width: 90vw;
+    border: solid;
+    border-color: white;
+    background-color: #121212;
+    border-radius: 1em;
+    overflow: hidden;
+    color: #121212;
+    opacity: 1;
+    text-align: center;
 }
