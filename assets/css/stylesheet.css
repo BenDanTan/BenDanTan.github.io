@@ -130,65 +130,6 @@ p {
     transition: opacity 1.0s;
 }
 
-.subtitle-row {
-    height: 50vh;
-    overflow: hidden;
-}
-
-.image-container {
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    background-color: white;
-    overflow: hidden;
-    margin: 0px;
-}
-
-.image-container img {
-    object-fit: contain;
-    height: 100%;
-    max-width: 100%;
-}
-
-.subtitle-row-col {
-    display: table;
-    height: 50vh;
-    text-align: left;
-    text-indent: 10%;
-}
-
-.subtitle-row-span {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.infoButton {
-    background: inherit;
-    color: white;
-    border-color: white;
-    border-style: solid;
-    text-align: center;
-    padding: 10px;
-    width: 128px;
-    height: 64px;
-    border-radius: 32px;
-    transition: 0.3s;
-    margin-left: 10%;
-    padding-bottom: 13px;
-    line-height: 25vh;
-}
-
-.infoButton:hover {
-    color: red;
-    border-color: red;
-    text-decoration: none;
-}
-
-.infoButton:visited {
-    text-decoration: none;
-}
-
 .linkImage {
     max-width: 48px;
     max-height: 48px;
