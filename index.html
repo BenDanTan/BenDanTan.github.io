@@ -4,9 +4,11 @@
         <title>Benjamin Tan</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/stylesheet.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="assets/scripts.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
     </head>
     <body onload="loadPage()">
@@ -15,7 +17,10 @@
         </script>
         <div id="sidenav" class="nav">
             <span onclick="closeNav()" class="closeButton" id="closeButton">
-                &times;
+                <i class="material-icons">close</i>
+            </span>
+            <span onclick="closeNav()" class="homeButton">
+                <i class="material-icons">home</i>
             </span>
             <div>
                 <a href="/Repositories/WebPortfolio/pages/Convergence/index.html" class="navContent">Convergence Resource Center</a>
@@ -31,16 +36,18 @@
                 <br>
                 <br>
                 <a href="/Repositories/WebPortfolio/pages/InProgress/index.html" class="navContent">Current Projects</a>
+                <br>
+                <br>
+                <a href="/Repositories/WebPortfolio/pages/About/index.html" class="navContent">About Me</a>
 
             </div>
         </div>
             <span onclick="openNav()" class="openButton" id="openButton">
-                &#9776;
+                <i class="material-icons">menu</i>
             </span>
         <div class="container-fluid page-container" id="page">            
-            <div class="row title-row">
+            <div class="row title-row" id="header">
                 <div class="col-6 title-row-col">
-                    
                     <span class="title-row-span" id="titleText">
                         <h1>Portfolio</h1>
                         <h3>Benjamin Tan</h3>
@@ -53,14 +60,14 @@
             <!--<hr noshade="noshade" class="row-divider">-->
             <!--Convergence Resource Center-->
             <div class="row bubble-row" data-aos="fade-left" id="Convergence" onmouseover='hoverBubble("Convergence")' onmouseout='unhoverBubble("Convergence")' onclick='clickBubble("Convergence")'>
-                <div class="col-3 hidden-xs bubble-image-col">
+                <div class="col-3 bubble-image-col">
                     <table class="bubble-table">
                         <td class="align-middle">
                             <img src="images/Convergence.webp" alt="" class="bubble-image">
                         </td>
                     </table>
                 </div>
-                <div class="col-9 col-xs-12 bubble-text">
+                <div class="col-9 bubble-text">
                     <table class="bubble-table">
                         <td class="align-middle">
                             <h2>Convergence Resource Center</h2>
@@ -144,17 +151,17 @@
             <!--Footer-->
             <hr noshade="noshade" class="row-divider">
             <div class="row">
-                <div class="col-5 footer-col">
+                <div class="col-4 footer-col">
                     <a href="https://www.linkedin.com/in/bendantan/">
                         <img src="images/linkedin.png" alt="" class="linkImage">
                     </a>
                 </div>
-                <div class="col-2 footer-col">
-                    <a href="https://www.linkedin.com/in/bendantan/">
-                        <h4>Contact Me</h4>
+                <div class="col-4 footer-col">
+                    <a href="About">
+                        <h4>About Me</h4>
                     </a>
                 </div>
-                <div class="col-5 footer-col">
+                <div class="col-4 footer-col">
                     <a href="mailto:BenDanTan@gmail.com">
                         <img src="images/gmail.png" alt="" class="linkImage">
                     </a>
