@@ -8,9 +8,10 @@
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="../../assets/scripts.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="../../assets/jquery.js"></script>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
     </head>
-    <body onload="loadPage()">
+    <body onload="loadProjectPage()">
         <script>
             AOS.init();
         </script>
@@ -18,7 +19,7 @@
             <span onclick="closeNav()" class="closeButton" id="closeButton">
                 <i class="material-icons">close</i>
             </span>
-            <span onclick="closeNav()" class="homeButton">
+            <span onclick="goHome()" class="homeButton">
                 <i class="material-icons">home</i>
             </span>
             <div>
@@ -42,15 +43,84 @@
             </div>
         </div>
         <span onclick="openNav()" class="openButton" id="openButton">
-            &#9776;
+            <i class="material-icons">menu</i>
         </span>
         <div class="container-fluid page-container" id="page">            
-            <div class="row title-row">
+            <div class="row title-row" id="header">
                 <div class="col-12 title-row-col">
                     <span class="title-row-span" id="titleText">
                         <h1>Convergence Resource Center</h1>
                         <h3>My second ASP.NET project, product of Code the Way 2019</h3>
                     </span>
+                </div>
+            </div>
+            <div class="row ProjectPage-bubble-row" data-aos="fade-up">
+                <div class="ProjectPage-text-container">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2 class="h2Subpage">Project Description</h2>
+                        </td>
+                    </table>
+                </div>
+                <p>
+                    The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.
+                </p>
+            </div>
+            <div class="row ProjectPage-row" data-aos="fade-up">
+                <div class="col-6" id="Code" onmouseover='hoverBubble("Code")' onmouseout='unhoverBubble("Code")' onclick='clickBubble("Code.html")'>
+                    <div class="ProjectPage-col">
+                        <div class="ProjectPage-image-container">
+                            <table class="bubble-table">
+                                <td class="align-middle">
+                                    <img src="../../images/CodeSymbol.png" class="ProjectPage-image">
+                                </td>
+                            </table>
+                        </div>
+                        <div class="ProjectPage-text-container">
+                            <table class="bubble-table">
+                                <td class="align-middle">
+                                    <h2 class="h2Subpage">Code Samples</h2 class="h2Subpage">
+                                </td>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6" id="Reflection" onmouseover='hoverBubble("Reflection")' onmouseout='unhoverBubble("Reflection")' onclick='clickBubble("Reflection.html")'>
+                    <div class="ProjectPage-col">
+                        <div class="ProjectPage-image-container">
+                            <table class="bubble-table">
+                                <td class="align-middle">
+                                    <img src="../../images/ReflectionBubble.png" class="ProjectPage-image">
+                                </td>
+                            </table>
+                        </div>
+                        <div class="ProjectPage-text-container">
+                            <table class="bubble-table">
+                                <td class="align-middle">
+                                    <h2 class="h2Subpage">Personal Reflection</h2 class="h2Subpage">
+                                </td>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Footer-->
+            <hr noshade="noshade" class="row-divider">
+            <div class="row">
+                <div class="col-4 footer-col">
+                    <a href="https://www.linkedin.com/in/bendantan/">
+                        <img src="../../images/linkedin.png" alt="" class="linkImage">
+                    </a>
+                </div>
+                <div class="col-4 footer-col">
+                    <a href="../../About/index.html">
+                        <h4>About Me</h4>
+                    </a>
+                </div>
+                <div class="col-4 footer-col">
+                    <a href="mailto:BenDanTan@gmail.com">
+                        <img src="../../images/gmail.png" alt="" class="linkImage">
+                    </a>
                 </div>
             </div>
         </div>
