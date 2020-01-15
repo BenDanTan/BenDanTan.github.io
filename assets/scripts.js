@@ -29,7 +29,8 @@ function loadMainPage() {
 }
 
 function loadProjectPage() {
-  document.getElementById("titleText").style.opacity = "1";
+    document.getElementById("titleText").style.opacity = "1";
+  
 
   $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
@@ -45,8 +46,16 @@ function loadProjectPage() {
        document.getElementById("sidenav").style.backgroundColor = "#121212"
        $('.ProjectPage-col').css('background-color','#121212')
        $('.ProjectPage-bubble-row').css('background-color','#121212')
+       $('.bubble-text').css('background-color','#333333')
     }
  })
+}
+
+function loadSubProjectPage() {
+  document.getElementById("page").style.backgroundColor = "#121212"
+  document.getElementById("sidenav").style.backgroundColor = "#333333"
+  $('.ProjectPage-bubble-row').css('background-color','#333333')
+  $('.bubble-row').css('background-color','#333333')
 }
 
 function hoverBubble(title) {

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Benjamin Tan</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../../assets/css/stylesheet.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="../../../assets/scripts.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="../../../assets/jquery.js"></script>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+    </head>
+    <body class="subProjectBody" onload="loadSubProjectPage()">
+        <script>
+            AOS.init();
+        </script>
+        <div id="sidenav" class="nav">
+            <span onclick="closeNav()" class="closeButton" id="closeButton">
+                <i class="material-icons">close</i>
+            </span>
+            <span onclick="goHome()" class="homeButton">
+                <i class="material-icons">home</i>
+            </span>
+            <div>
+                <a href="../../../pages/Convergence/index.html" class="navContent">Convergence Resource Center</a>
+                <br>
+                <br>
+                <a href="../../../pages/Milliman/index.html" class="navContent">Milliman</a>
+                <br>
+                <br>
+                <a href="../../../pages/Heroes/index.html" class="navContent">Heroes for Healthcare</a>
+                <br>
+                <br>
+                <a href="../../../pages/CTW/index.html" class="navContent">Code the Way Bootcamp</a>
+                <br>
+                <br>
+                <a href="../../../pages/InProgress/index.html" class="navContent">Current Projects</a>
+                <br>
+                <br>
+                <a href="../../../pages/About/index.html" class="navContent">About Me</a>
+
+            </div>
+        </div>
+
+        <div class="row subProjectTitle" id="header">
+            <div class="col-1">
+                <span onclick="openNav()" class="subOpenButton" id="openButton">
+                    <i class="material-icons">menu</i>
+                </span>
+            </div>
+            <div class="col-11">
+                <table class="bubble-table">
+                    <td class="align-middle">
+                        <h2 class="h2Subheader">Code the Way Bootcamp</h2>
+                    </td>
+                </table>
+            </div>
+        </div>
+        <div class="container-fluid subProjectPage-container" id="page">            
+            <div class="row ProjectPage-bubble-row" data-aos="fade-up">
+                <div class="ProjectPage-text-container">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2 class="h2Subpage">Project Description</h2>
+                        </td>
+                    </table>
+                </div>
+                <p>
+                    The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.
+                </p>
+            </div>
+            <!--Java and C#-->
+            <div class="row bubble-row" data-aos="fade-left" id="JavaC" onmouseover='hoverBubble("JavaC")' onmouseout='unhoverBubble("JavaC")' onclick='clickBubble("code/JavaC.html")'>
+                <div class="col-12 bubble-text">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2>Java and C#</h2>
+                            <p>SafeNet Consulting ATM problem written in Java and C#</p>
+                        </td>
+                    </table>
+                </div>
+            </div>
+            <!--File I/O-->
+            <div class="row bubble-row" data-aos="fade-right" id="FileIO" onmouseover='hoverBubble("FileIO")' onmouseout='unhoverBubble("FileIO")' onclick='clickBubble("code/FileIO.html")'>
+                <div class="col-12 bubble-text">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2>File I/O</h2>
+                            <p>File Input and Output written in C# using Source Control</p> 
+                        </td>
+                    </table>
+                </div>
+            </div>
+            <!--Client Side Unit Conversion-->
+            <div class="row bubble-row" data-aos="fade-left" id="ClientUC" onmouseover='hoverBubble("ClientUC")' onmouseout='unhoverBubble("ClientUC")' onclick='clickBubble("code/ClientUC.html")'>
+                <div class="col-12 bubble-text">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2>Client Side Unit Conversion</h2>
+                            <p>A Unit Conversion page written using HTML and JavaScript</p>
+                        </td>
+                    </table>
+                </div>
+            </div>
+            <!--Server Side Unit Conversion-->
+            <div class="row bubble-row" data-aos="fade-right" id="CTW" onmouseover='hoverBubble("CTW")' onmouseout='unhoverBubble("CTW")' onclick='clickBubble("code/FileIO.html")'>
+                <div class="col-12 bubble-text">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2>Server Side Unit Conversion</h2>
+                            <p>A Unit Conversion page written using C# and the MVC Structure</p> 
+                        </td>
+                    </table>
+                </div>
+            </div>
+            <!--Final Project-->
+            <div class="row bubble-row" data-aos="fade-left" id="InProgress" onmouseover='hoverBubble("InProgress")' onmouseout='unhoverBubble("InProgress")' onclick='clickBubble("code/FileIO.html")'>
+                <div class="col-12 bubble-text">
+                    <table class="bubble-table">
+                        <td class="align-middle">
+                            <h2>Final Project</h2>
+                            <p>A Final Summative Project using HTML, CSS, C#, and JavaScript in the MVC Structure</p>
+                        </td>
+                    </table>
+                </div>
+            </div>
+            <!--Footer-->
+            <hr noshade="noshade" class="row-divider">
+            <div class="row">
+                <div class="col-3 footer-col">
+                    <a href="https://www.linkedin.com/in/bendantan/">
+                        <img src="../../../images/linkedin.png" alt="" class="linkImage">
+                    </a>
+                </div>
+                <div class="col-6 footer-col">
+                    <a href="../../../pages/About/index.html">
+                        <h4>About Me</h4>
+                    </a>
+                </div>
+                <div class="col-3 footer-col">
+                    <a href="mailto:BenDanTan@gmail.com">
+                        <img src="../../../images/gmail.png" alt="" class="linkImage">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
