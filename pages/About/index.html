@@ -1,94 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Benjamin Tan</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="../../assets/css/stylesheet.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <script src="../../assets/scripts.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="../../assets/jquery.js"></script>
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
-    </head>
-    <body class="subProjectBody" onload="loadSubProjectPage()">
-        <script>
-            AOS.init();
-        </script>
-        <div id="sidenav" class="nav">
-            <span onclick="closeNav()" class="closeButton" id="closeButton">
-                <i class="material-icons">close</i>
-            </span>
-            <span onclick="goHome()" class="homeButton">
-                <i class="material-icons">home</i>
-            </span>
-            <div>
-                <a href="../../pages/Convergence/index.html" class="navContent">Convergence Resource Center</a>
-                <br>
-                <br>
-                <a href="../../pages/Milliman/index.html" class="navContent">Milliman</a>
-                <br>
-                <br>
-                <a href="../../pages/Heroes/index.html" class="navContent">Heroes for Healthcare</a>
-                <br>
-                <br>
-                <a href="../../pages/CTW/index.html" class="navContent">Code the Way Bootcamp</a>
-                <br>
-                <br>
-                <a href="../../pages/InProgress/index.html" class="navContent">Current Projects</a>
-                <br>
-                <br>
-                <a href="../../pages/About/index.html" class="navContent">About Me</a>
 
-            </div>
-        </div>
+<head>
+  <title>Benjamin Tan | About</title>
 
-        <div class="row subProjectTitle" id="header">
-            <div class="col-1">
-                <span onclick="openNav()" class="subOpenButton" id="openButton">
-                    <i class="material-icons">menu</i>
-                </span>
-            </div>
-            <div class="col-11">
-                <table class="bubble-table">
-                    <td class="align-middle">
-                        <h2 class="h2Subheader">About Me</h2>
-                    </td>
-                </table>
-            </div>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/stylesheet.css" />
+  
+  <script src="../../assets/scripts.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/jquery.js"></script>
+
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+
+<body class="subProjectBody" onload="loadSubProjectPage()">
+  <script>
+    AOS.init();
+  </script>
+  <div id="sidenav" class="nav">
+    <span onclick="closeNav()" class="closeButton" id="closeButton">
+      <i class="material-icons">close</i>
+    </span>
+    <span onclick="goHome()" class="homeButton">
+      <i class="material-icons">home</i>
+    </span>
+    <div>
+      <a href="../../pages/Convergence/index.html" class="navContent">Convergence Resource Center</a>
+      <br>
+      <br>
+      <a href="../../pages/Milliman/index.html" class="navContent">Milliman</a>
+      <br>
+      <br>
+      <a href="../../pages/Heroes/index.html" class="navContent">Heroes for Healthcare</a>
+      <br>
+      <br>
+      <a href="../../pages/CTW/index.html" class="navContent">Code the Way Bootcamp</a>
+      <br>
+      <br>
+      <a href="../../pages/InProgress/index.html" class="navContent">Current Projects</a>
+      <br>
+      <br>
+      <a href="../../pages/About/index.html" class="navContent">About Me</a>
+
+    </div>
+  </div>
+
+  <div class="row subProjectTitle" id="header">
+    <div class="col-1">
+      <span onclick="openNav()" class="subOpenButton" id="openButton">
+        <i class="material-icons">menu</i>
+      </span>
+    </div>
+    <div class="col-11">
+      <table class="bubble-table">
+        <td class="align-middle">
+          <h2 class="h2Subheader">About Me</h2>
+        </td>
+      </table>
+    </div>
+  </div>
+  <div class="container-fluid subProjectPage-container" id="page">
+    <div class="row ProjectPage-bubble-row" data-aos="fade-up">
+      <div class="ProjectPage-text-container">
+        <table class="bubble-table">
+          <td class="align-middle">
+            <h2 class="h2Subpage">About Me</h2>
+          </td>
+        </table>
+      </div>
+      <p>
+        <img src="../../images/Portrait.jpg" class="portrait">
+        My name is Benjamin Tan. I am studying Computer Science at the University of Wisconsin - Madison and I am
+        looking for internship opportunities to expand my development experience.
+        I have dedicated much of the last 5 years of my life to learning and working in software development inside and
+        outside of the classroom.
+        In high school I was fortunate enough to intern on 3 projects,
+        <a href="../Convergence/index.html" class="linkText">Convergence Resource Center</a>, <a
+          href="../Milliman/index.html" class="linkText">Milliman</a> and <a href="../Heroes/index.html"
+          class="linkText">Heroes for Healthcare</a>.
+        These projects showed me the immense value in structured workflow, taking critical feedback, and keeping an open
+        mind.
+        In addition to software development, however, I have pursued music in the Milwaukee Youth Symphony Orchestra and
+        enjoyed conducting leadership trainings and earning my Eagle Scout rank in the Scouting program.
+        These programs have kept me open-minded and creative outside of the classroom and taught me how to be a valuable
+        team member which I was able to practice in my past development projects.
+        While I have enjoyed my extensive experience in web development, I am eager to learn more and work on a variety
+        of different projects.
+    </div>
+    <div class="row ProjectPage-row" data-aos="fade-up">
+      <div class="col-6">
+        <div class="ProjectPage-col" id="Contact" onmouseover='hoverBubble("Contact")'
+          onmouseout='unhoverBubble("Contact")' onclick='clickContact()'>
+          <div class="ProjectPage-text-container">
+            <table class="bubble-table">
+              <td class="align-middle">
+                <h2 class="h2Subpage">Contact Me</h2 class="h2Subpage">
+              </td>
+            </table>
+            <p>
+              <i class="material-icons">mail-outline</i>
+            </p>
+
+          </div>
         </div>
-        <div class="container-fluid subProjectPage-container" id="page">            
-            <div class="row ProjectPage-bubble-row" data-aos="fade-up">
-                <div class="ProjectPage-text-container">
-                    <table class="bubble-table">
-                        <td class="align-middle">
-                            <h2 class="h2Subpage">About Me</h2>
-                        </td>
-                    </table>
-                </div>
-                <p>
-                    <img src="../../images/Portrait.jpg" class="portrait">
-                    My name is Benjamin Tan. I am studying Computer Science at the University of Wisconsin - Madison and I am looking for internship opportunities to expand my development experience. I have dedicated much of the last 5 years of my life to learning and working in software development, which I took a liking to when I was 13 years old. In high school I was fortunate enough to intern on 3 projects, Convergence Resource Center, Milliman, and Heroes for Healthcare (LINK ALL 3). These projects showed me the immense value in structured workflow, taking critical feedback, and keeping an open mind. In addition to software development, however, I have pursued music in the Milwaukee Youth Symphony Orchestra and enjoyed counducting leadership trainings and earning my Eagle Scout rank in the Scouting program. These programs have kept me open-minded and creative outside of the classroom. While I have enjoyed my extensive experience in web development, I am eager to learn more and work on a variety of different projects.                </p>
-            </div>
-            <div class="row ProjectPage-row" data-aos="fade-up">
-                <div class="col-6" id="Code" onmouseover='hoverBubble("Code")' onmouseout='unhoverBubble("Code")' onclick='clickBubble("Code/index.html")'>
-                    <div class="ProjectPage-col">
-                        <div class="ProjectPage-text-container">
-                            <table class="bubble-table">
-                                <td class="align-middle">
-                                    <h2 class="h2Subpage">Contact Me</h2 class="h2Subpage">
-                                    
-                                </td>
-                                
-                            </table>
-                            <p>
-                                <i class="material-icons">mail-outline</i>
-                            </p>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-6">
+        <div class="ProjectPage-col" id="Resume" onmouseover='hoverBubble("Resume")'
+          onmouseout='unhoverBubble("Resume")' onclick='clickBubble("../../images/resume.pdf")'>
+          <div class="ProjectPage-text-container">
+            <table class="bubble-table">
+              <td class="align-middle">
+                <h2 class="h2Subpage">Resume</h2 class="h2Subpage">
+              </td>
+            </table>
+            <p>
+              <i class="material-icons">mail-outline</i>
+            </p>
+
+          </div>
         </div>
-    </body>
+      </div>
+    </div>
+    <div class="row ProjectPage-row" data-aos="fade-up">
+      <div class="col-12 contact-link">
+        <a href="mailto:BenDanTan@gmail.com" class="bubble-link">
+          <div class="ProjectPage-col" id="Email" onmouseover='hoverBubble("Email")'
+            onmouseout='unhoverBubble("Email")'>
+            <div class="ProjectPage-text-container">
+              <table class="bubble-table">
+                <td class="align-middle">
+                  <h2 class="h2Subpage">Email: BenDanTan@gmail.com</h2 class="h2Subpage">
+                </td>
+              </table>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row ProjectPage-row" data-aos="fade-up">
+      <div class="col-12 contact-link">
+        <a href="https://linkedin.com/in/bendantan" class="bubble-link">
+          <div class="ProjectPage-col" id="Linkedin" onmouseover='hoverBubble("Linkedin")'
+            onmouseout='unhoverBubble("Linkedin")'>
+            <div class="ProjectPage-text-container">
+              <table class="bubble-table">
+                <td class="align-middle">
+                  <h2 class="h2Subpage">Linkedin</h2 class="h2Subpage">
+                </td>
+              </table>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

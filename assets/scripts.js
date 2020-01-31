@@ -73,3 +73,9 @@ function clickBubble(address) {
 function goHome() {
   window.location = "http://bendantan.github.io"
 }
+
+function clickContact (){
+  $('.contact-link').css('display','block')
+  window.scrollBy(0,5000);
+  
+}
