@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .page-container {
     padding-left: 0;
     padding-right: 0;
@@ -9,7 +13,7 @@
 
 body {
     background-color: #333333;
-    font: Proxima Nova;
+    font-family: 'Courier New', Courier, monospace;
     overflow-x: hidden;
 }
 
@@ -336,4 +340,32 @@ p {
     margin-right: 15px;
     width: 10vw;
     
+}
+
+.linkText {
+    text-align: inherit;
+    font: inherit;
+    font-size: inherit;
+    color: white;
+}
+
+.linkText:hover {
+    color: red;
+}
+
+.contact-link {
+    display: none;
+    transition-duration: display 10s;
+}
+
+.bubble-link:link{
+    text-decoration: none;
+}
+
+.bubble-link:hover{
+    text-decoration: none;
+}
+
+.bubble-link:visited{
+    text-decoration: none;
 }
