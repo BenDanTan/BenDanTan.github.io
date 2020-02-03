@@ -254,9 +254,19 @@ p {
   margin-right: 3vw;
   margin-top: 5vh;
   margin-bottom: 5vh;
-  border: solid;
-  border-color: white;
   background-color: #121212;
+  border-radius: 1em;
+  overflow: hidden;
+  color: #121212;
+  opacity: 1;
+}
+
+.About-col {
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-top: 3vh;
+  margin-bottom: 15vh;
+  background-color: #5e5e5e;
   border-radius: 1em;
   overflow: hidden;
   color: #121212;
@@ -289,9 +299,7 @@ p {
   margin-bottom: 2.5vh;
   padding: 5px;
   width: 90vw;
-  border: solid;
-  border-color: white;
-  background-color: #121212;
+  background-color: #5e5e5e;
   border-radius: 1em;
   overflow: hidden;
   color: #121212;
@@ -339,8 +347,6 @@ p {
 
 .portrait {
   float: left;
-  border: solid;
-  border-color: white;
   border-radius: 1em;
   margin-left: 15px;
   margin-right: 15px;
@@ -374,4 +380,13 @@ p {
 
 .bubble-link:visited {
   text-decoration: none;
+}
+
+.resume {
+  text-align: center;
+}
+
+.resume-image {
+  padding-top: 10vh;
+  max-width: 100vw;
 }
