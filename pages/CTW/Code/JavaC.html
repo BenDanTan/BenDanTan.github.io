@@ -52,7 +52,7 @@
             <div class="col-11">
                 <table class="bubble-table">
                     <td class="align-middle">
-                        <h2 class="h2Subheader">[insert title]</h2>
+                        <h2 class="h2Subheader">Java and C#</h2>
                     </td>
                 </table>
             </div>
@@ -67,8 +67,588 @@
                     </table>
                 </div>
                 <p>
-                    [insert project reflection]
+                    This project was a final test of my proficiency in the Java programming language and my ability to quickly adapt to a new language (in this case C#). 
+                    The goal was to create an ATM program with deposit and withdraw functions while keeping track of the machine balance in each type bill. 
+                    The program was written in both Java and C#, both of which had the same console output and usable commands.
                 </p>
+            </div>
+            <!--C# Input-->
+            <div class="row bubble-row" data-aos="fade-left" id="CInput" onmouseover='hoverBubble("CInput")' onmouseout='unhoverBubble("CInput")' onclick='toggleVisible("CInputCode","CInput")'>
+                <div class="col-12 bubble-code">
+                    <div>
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <h2>C# Input Class</h2>
+                                    <p>C# class written to deal with user input</p>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="code" id="CInputCode">
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <pre><xmp>
+
+using System;
+namespace ConsoleATM
+{
+    class input
+    {
+        static void Main(string[] args)
+        {
+            String input;
+            ATM machine = new ATM();
+            bool run = true;
+            bool  valid = false;
+            while (run)
+            {
+                input = Console.ReadLine();
+                if (input[0] == 'R') 
+                {
+                    machine.restock();
+                    valid = true;
+                }
+                if (input[0] == 'W')
+                {
+                    String[] value = input.Split("$");
+                    if (value.Length > 1)
+                    {
+                        machine.withdrawl(Int32.Parse(value[1]));
+                        valid = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failure: Invalid Command");
+                        Console.ReadLine();
+                    }
+                }
+                if (input[0] == 'I') 
+                {
+                    machine.inquiry(input);
+                    valid = true;
+                }
+                if ((input[0]) == 'Q') 
+                {
+                    run = false;
+                    valid = true;
+                }
+                if (!valid)
+                {
+                    Console.WriteLine("Invalid Command");
+                }
+                else
+                {
+                    valid = false;
+                }
+            }
+        }
+    }
+}
+
+                                    </xmp></pre>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--C# ATM-->
+            <div class="row bubble-row" data-aos="fade-left" id="CATM" onmouseover='hoverBubble("CATM")' onmouseout='unhoverBubble("CATM")' onclick='toggleVisible("CATMCode","CATM")'>
+                <div class="col-12 bubble-code">
+                    <div>
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <h2>C# ATM Class</h2>
+                                    <p>C# class written to calculate output and data manipulaton</p>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="code" id="CATMCode">
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <pre><xmp>
+
+using System;
+    using System.Collections.Generic;
+    using System.Text;
+
+    namespace ConsoleATM
+    {
+        class ATM
+        {
+            private int hundred;
+            private int fifty;
+            private int twenty;
+            private int ten;
+            private int five;
+            private int one;
+
+            public ATM()
+            {
+                hundred = 10;
+                fifty = 10;
+                twenty = 10;
+                ten = 10;
+                five = 10;
+                one = 10;
+            }
+
+            public void restock()
+            {
+                hundred = 10;
+                fifty = 10;
+                twenty = 10;
+                ten = 10;
+                five = 10;
+                one = 10;
+                this.readBalance();
+            }
+
+            public void withdrawl(int dollars)
+            {
+                int total = dollars;
+                bool funds = true;
+                int outHundred = 0;
+                int outFifty = 0;
+                int outTwenty = 0;
+                int outTen = 0;
+                int outFive = 0;
+                int outOne = 0;
+
+                if (total / 100 >= 1)
+                {
+                    outHundred = total / 100;
+                    if (outHundred > hundred)
+                    {
+                        funds = false;
+                    }
+                    total = (total % 100);
+                }
+                if (total / 50 >= 1)
+                {
+                    outFifty = total / 50;
+                    if (outFifty > fifty)
+                    {
+                        funds = false;
+                    }
+                    total = (total % 50);
+                }
+                if (total / 20 >= 1)
+                {
+                    outTwenty = total / 20;
+                    if (outTwenty > twenty)
+                    {
+                        funds = false;
+                    }
+                    total = (total % 20);
+                }
+                if (total / 10 >= 1)
+                {
+                    outTen = total / 10;
+                    if (outTen > ten)
+                    {
+                        funds = false;
+                    }
+                    total = (total % 10);
+                }
+                if (total / 5 >= 1)
+                {
+                    outFive = total / 5;
+                    if (outFive > five)
+                    {
+                        funds = false;
+                    }
+                    total = (total % 5);
+                }
+                if (total >= 1)
+                {
+                    outOne = total;
+                    if (outOne > one)
+                    {
+                        funds = false;
+                    }
+                }
+                if (funds)
+                {
+                    hundred = hundred - outHundred;
+                    fifty = fifty - outFifty;
+                    twenty = twenty - outTwenty;
+                    ten = ten - outTen;
+                    five = five - outFive;
+                    one = one - outOne;
+                    Console.WriteLine("Success: dispenced $" + dollars);
+                    this.readBalance();
+                }
+                else
+                {
+                    Console.WriteLine("Failure: insufficient funds");
+                    this.readBalance();
+                }
+            }
+
+            public void readBalance()
+            {
+                Console.WriteLine("Machine Balance:");
+                Console.WriteLine("$100 - " + hundred);
+                Console.WriteLine("$50 - " + fifty);
+                Console.WriteLine("$20 - " + twenty);
+                Console.WriteLine("$10 - " + ten);
+                Console.WriteLine("$5 - " + five);
+                Console.WriteLine("$1 - " + one);
+            }
+
+            public void inquiry(String denominations)
+            {
+                String[] values = denominations.Split("$");
+                if (values.Length > 1)
+                {
+                    Console.WriteLine(values[1]);
+                    bool error = false;
+                    bool match = false;
+                    for (int i = 1; i < values.Length; i++)
+                    {
+                        match = false;
+                        if (values[i].Equals("100"))
+                        {
+                            match = true;
+                            Console.WriteLine("$100 - " + hundred);
+                        }
+                        if (values[i].Equals("50"))
+                        {
+                            match = true;
+                            Console.WriteLine("$50 - " + fifty);
+                        }
+                        if (values[i].Equals("20"))
+                        {
+                            match = true;
+                            Console.WriteLine("$20 - " + twenty);
+                        }
+                        if (values[i].Equals("10"))
+                        {
+                            match = true;
+                            Console.WriteLine("$10 - " + ten);
+                        }
+                        if (values[i].Equals("5"))
+                        {
+                            match = true;
+                            Console.WriteLine("$5 - " + five);
+                        }
+                        if (values[i].Equals("1"))
+                        {
+                            match = true;
+                            Console.WriteLine("$1 - " + one);
+                        }
+                        if (match == false)
+                        {
+                            Console.WriteLine("Failure: invalid command");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Failure: invalid command");
+                }
+            }
+        }
+    }
+
+                                    </xmp></pre>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--Java Input-->
+            <div class="row bubble-row" data-aos="fade-left" id="JavaInput" onmouseover='hoverBubble("JavaInput")' onmouseout='unhoverBubble("JavaInput")' onclick='toggleVisible("JavaInputCode","JavaInput")'>
+                <div class="col-12 bubble-code">
+                    <div>
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <h2>Java Input Class</h2>
+                                    <p>Java class written to deal with user input</p>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="code" id="JavaInputCode">
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <pre><xmp>
+
+package cashMachine;
+
+    import java.util.Scanner;
+
+    public class Input {
+
+        public static void main(String[] args) {
+
+            Scanner input = new Scanner(System.in);
+            String in;
+            ATM machine = new ATM();
+            boolean run = true;
+            boolean valid = false;
+            while (run) 
+            {
+                in = input.nextLine();
+                if (in.charAt(0) == 'R')
+                {
+                    machine.restock();
+                    valid=true;
+                }
+                if (in.charAt(0) == 'W') 
+                {
+                    String[] value = in.split("\\$");
+                    if (value.length>1)
+                    {
+                        machine.withdrawl(Integer.parseInt(value[1]));
+                        valid=true;
+                    }
+                    else
+                    {
+                        System.out.println("Failure: Invalid Command");
+                        input.nextLine();
+                    }
+                }
+                if (in.charAt(0) == 'I')
+                {
+                    machine.inquiry(in);
+                    valid=true;
+                }
+                if (in.charAt(0) == 'Q')
+                {
+                    run = false;
+                    valid=true;
+                }
+                if (valid==false)
+                {
+                    System.out.println("Invalid Command");
+                }
+                else
+                {
+                    valid=false;
+                }
+            }
+        }
+    }
+
+                                    </xmp></pre>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--Java ATM-->
+            <div class="row bubble-row" data-aos="fade-left" id="JavaATM" onmouseover='hoverBubble("JavaATM")' onmouseout='unhoverBubble("JavaATM")' onclick='toggleVisible("JavaATMCode","JavaATM")'>
+                <div class="col-12 bubble-code">
+                    <div>
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <h2>Java ATM Class</h2>
+                                    <p>Java class written to calculate output and data manipulaton</p>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="code" id="JavaATMCode">
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <pre><xmp>
+
+package cashMachine;
+
+    public class ATM {
+
+        private int hundred;
+        private int fifty;
+        private int twenty;
+        private int ten;
+        private int five;
+        private int one;
+
+        public ATM()
+        {
+            hundred = 10;
+            fifty = 10;
+            twenty = 10;
+            ten = 10;
+            five = 10;
+            one = 10;
+        }
+
+        public void restock()
+        {
+            hundred = 10;
+            fifty = 10;
+            twenty = 10;
+            ten = 10;
+            five = 10;
+            one = 10;
+            this.readBalance();
+        }
+
+        public void withdrawl(int dollars)
+        {
+            int total = dollars;
+            boolean funds = true;
+            int outHundred = 0;
+            int outFifty = 0;
+            int outTwenty = 0;
+            int outTen = 0;
+            int outFive = 0;
+            int outOne = 0;
+
+            if (total / 100 >= 1)
+            {
+                outHundred = total / 100;
+                if (outHundred > hundred)
+                {
+                    funds = false;
+                }
+                total = (total % 100);
+            }
+            if (total / 50 >= 1)
+            {
+                outFifty = total / 50;
+                if (outFifty > fifty)
+                {
+                    funds = false;
+                }
+                total = (total % 50);
+            }
+            if (total / 20 >= 1)
+            {
+                outTwenty = total / 20;
+                if (outTwenty > twenty)
+                {
+                    funds = false;
+                }
+                total = (total % 20);
+            }
+            if (total / 10 >= 1)
+            {
+                outTen = total / 10;
+                if (outTen > ten)
+                {
+                    funds = false;
+                }
+                total = (total % 10);
+            }
+            if (total / 5 >= 1)
+            {
+                outFive = total / 5;
+                if (outFive > five)
+                {
+                    funds = false;
+                }
+                total = (total % 5);
+            }
+            if (total >= 1)
+            {
+                outOne = total;
+                if (outOne > one)
+                {
+                    funds = false;
+                }
+            }
+            if (funds)
+            {
+                hundred = hundred - outHundred;
+                fifty = fifty - outFifty;
+                twenty = twenty - outTwenty;
+                ten = ten - outTen;
+                five = five - outFive;
+                one = one - outOne;
+                System.out.println("Success: dispenced $" + dollars);
+                this.readBalance();
+            } 
+            else
+            {
+                System.out.println("Failure: Insufficient funds");
+                this.readBalance();
+            }
+        }
+
+        public void readBalance() {
+            System.out.println("Machine Balance:");
+            System.out.println("$100 - " + hundred);
+            System.out.println("$50 - " + fifty);
+            System.out.println("$20 - " + twenty);
+            System.out.println("$10 - " + ten);
+            System.out.println("$5 - " + five);
+            System.out.println("$1 - " + one);
+        }
+
+        public void inquiry(String denominations) {
+            String[] values = denominations.split(" \\$");
+            if (values.length > 1)
+            {
+                System.out.println(values[1]);
+                boolean error = false;
+                boolean match = false;
+                for (int i = 1; i < values.length; i++)
+                {
+                    match = false;
+                    if (values[i].equals("100"))
+                    {
+                        match = true;
+                        System.out.println("$100 - " + hundred);
+                    }
+                    if (values[i].equals("50"))
+                    {
+                        match = true;
+                        System.out.println("$50 - " + fifty);
+                    }
+                    if (values[i].equals("20"))
+                    {
+                        match = true;
+                        System.out.println("$20 - " + twenty);
+                    }
+                    if (values[i].equals("10"))
+                    {
+                        match = true;
+                        System.out.println("$10 - " + ten);
+                    }
+                    if (values[i].equals("5"))
+                    {
+                        match = true;
+                        System.out.println("$5 - " + five);
+                    }
+                    if (values[i].equals("1"))
+                    {
+                        match = true;
+                        System.out.println("$1 - " + one);
+                    }
+                    if (match = false)
+                    {
+                        System.out.println("Failure: Invalid command");
+                    }
+                }
+            }
+            else
+            {
+                System.out.println("Failure: Invalid command");
+            }
+        }
+    }
+
+                                    </xmp></pre>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div class="row ProjectPage-bubble-row" data-aos="fade-up">
                 <div class="ProjectPage-text-container">
@@ -79,8 +659,30 @@
                     </table>
                 </div>
                 <p>
-                    [insert project reflection]
+                    While every piece of this project is fairly similar to its counterpart (Java to C#, and Eclipse to Visual Studio) I was still pushed out of my comfort zone and learned a lot,
+                     even becoming fairly comfortable with these new tools. I found that if I was able to conceptualize the algorithms first without thinking about syntax, 
+                     I was able to more efficiently and effectively write the program in both languages. 
+                    Overall, from this project I learned how to use Visual Studio and how to code in C#, while becoming much more comfortable with Source Control as well as the agile development process.
                 </p>
+            </div>
+            <!--Footer-->
+            <hr noshade="noshade" class="row-divider">
+            <div class="row">
+                <div class="col-3 footer-col">
+                    <a href="https://www.linkedin.com/in/bendantan/">
+                        <img src="../../../images/linkedin.png" alt="" class="linkImage">
+                    </a>
+                </div>
+                <div class="col-6 footer-col">
+                    <a href="../../../pages/About/index.html">
+                        <h4>About Me</h4>
+                    </a>
+                </div>
+                <div class="col-3 footer-col">
+                    <a href="mailto:BenDanTan@gmail.com">
+                        <img src="../../../images/gmail.png" alt="" class="linkImage">
+                    </a>
+                </div>
             </div>
         </div>
     </body>

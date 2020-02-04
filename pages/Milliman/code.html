@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Benjamin Tan</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../assets/css/stylesheet.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="../../assets/scripts.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="../../assets/jquery.js"></script>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+    </head>
+    <body class="subProjectBody" onload="loadSubProjectPage()">
+        <script>
+            AOS.init();
+        </script>
+        <div id="sidenav" class="nav">
+            <span onclick="closeNav()" class="closeButton" id="closeButton">
+                <i class="material-icons">close</i>
+            </span>
+            <span onclick="goHome()" class="homeButton">
+                <i class="material-icons">home</i>
+            </span>
+            <div>
+                <a href="../../pages/Convergence/index.html" class="navContent">Convergence Resource Center</a>
+                <br>
+                <br>
+                <a href="../../pages/Milliman/index.html" class="navContent">Milliman</a>
+                <br>
+                <br>
+                <a href="../../pages/Heroes/index.html" class="navContent">Heroes for Healthcare</a>
+                <br>
+                <br>
+                <a href="../../pages/CTW/index.html" class="navContent">Code the Way Bootcamp</a>
+                <br>
+                <br>
+                <a href="../../pages/InProgress/index.html" class="navContent">Current Projects</a>
+                <br>
+                <br>
+                <a href="../../pages/About/index.html" class="navContent">About Me</a>
+
+            </div>
+        </div>
+
+        <div class="row subProjectTitle" id="header">
+            <div class="col-1">
+                <span onclick="openNav()" class="subOpenButton" id="openButton">
+                    <i class="material-icons">menu</i>
+                </span>
+            </div>
+            <div class="col-11">
+                <table class="bubble-table">
+                    <td class="align-middle">
+                        <h2 class="h2Subheader">Milliman</h2>
+                    </td>
+                </table>
+            </div>
+        </div>
+        <div class="container-fluid subProjectPage-container" id="page">
+          <!--Main Page Sample-->
+          <div class="row bubble-row" data-aos="fade-left" id="Model" onmouseover='hoverBubble("Model")' onmouseout='unhoverBubble("Model")' onclick='toggleVisible("ModelCode","Model")'>
+            <div class="col-12 bubble-code">
+                <div>
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                                <h2>Main Page</h2>
+                                <p>The front page for the form-filling application</p>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code" id="ModelCode">
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                              <pre><xmp>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='icon' type='image/png' sizes='16x16' href='favicon.ico'>
+    <title>Spring Launch</title>
+    <!--CSS-->
+    <link href='css/milliman_bootstrap.css' rel='stylesheet'>
+    <link href='css/milliman_navigation_bar.css' rel='stylesheet'>
+    <link rel="stylesheet" href="animate.css-master/animate.min.css">
+    <!--JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<?php
+ob_start();
+session_start();
+
+include_once('data/lookups.php');
+include_once('navbar.php');
+
+
+$prasfive = pra_select_five();
+$crasfive = cra_select_five();
+?>
+
+<body>
+
+    <div class="container-fluid">
+
+        <center>
+            <h3> Welcome to the Milliman QRM Document Manager Center!</h3>
+        </center>
+
+
+        <br>
+
+
+        <div class="row">
+
+            <br>
+
+            <div class="col-6">
+                <div class="row">
+                    <div class="col">
+                        <center>
+                            <h5> Project Risk Assessments </h5>
+                        </center>
+                    </div>
+                </div>
+                <div>
+                    <?Php
+                    echo '<table class="table table-hover col-10 offset-1">';
+                    echo '<thead><tr><th scope="col">Project Identification</th><th scope="col">Client Name</th>';
+                    foreach ($prasfive as $pra) {
+                        echo "<tbody><tr><td><a href=project-risk-assessment-edit.php?id=$pra[id]>$pra[project_identification]</a></td><td>$pra[client_name]</td>";
+                    }
+                    echo "</table>;"
+                    ?>
+                </div>
+            </div>
+
+
+            <div class="col-6">
+                <div class="row">
+                    <div class="col">
+                        <center>
+                            <h5> Client Risk Assessments </h5>
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+                    <?Php
+                    echo '<table class="table table-hover col-10 offset-1"">';
+                    echo '<thead><tr><th scope="col">Client Name</th><th scope="col">Lead Consultant</th></thread>';
+                    foreach ($crasfive as $cra) {
+                        echo "<tbody><tr><td><a href=client-risk-assessment-edit.php?id=$cra[id]>$cra[prospective_client_name]</a></td><td>$cra[lead_consultant]</td></tbody>";
+                    }
+                    echo "</table>";
+                    /////////////////////////////////////  
+                    ?>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
+
+                              </xmp></pre>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+          <!--Edit Form Sample-->
+          <div class="row bubble-row" data-aos="fade-left" id="View" onmouseover='hoverBubble("View")' onmouseout='unhoverBubble("View")' onclick='toggleVisible("ViewCode","View")'>
+            <div class="col-12 bubble-code">
+                <div>
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                                <h2>Form Edit Page</h2>
+                                <p>Edit page for the "Project Risk Assessment" form</p>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code" id="ViewCode">
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                              <pre><xmp>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head id="PRApage">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='icon' type='image/png' sizes='16x16' href='favicon.ico'>
+    <title>Project Risk Assessment Form</title>
+    <!--CSS-->
+    <link href='css/milliman_navigation_bar.css' rel='stylesheet'>
+    <link href='css/milliman_bootstrap.css' rel='stylesheet'>
+    <link rel="stylesheet" href="animate.css-master/animate.min.css">
+    <link href='css/QRM.css' rel='stylesheet'>
+    <!--JS-->
+    <script src="js/QRM.js"></script>
+    <script type="text/javascript">
+        document.onkeypress = stopRKey;
+    </script>
+</head>
+<?php
+ob_start();
+session_start();
+include_once('data/lookups.php');
+include('navbar.php');
+
+$id = $_GET['id'];
+$count = $pdo_conn->prepare("select * from project_risk_assessment where id=:id");
+$count->bindParam(":id", $id, PDO::PARAM_INT, 3);
+
+if ($count->execute()) {
+    $row = $count->fetch(PDO::FETCH_OBJ);
+}
+
+$date = new DateTime(null, new DateTimeZone('America/Chicago'));
+$date = $date->format('Y-m-d H:i:s');
+?>
+
+<!--Sets checkboxes and dropdowns to correct value on load-->
+<body onload="activeNav();
+showChecked('checkboxes');
+setSelectedIndex('negotiatedBudget', '<?php echo $row->budget_timeframe; ?>');
+setSelectedIndex('riskLevel', '<?php echo $row->risk_level; ?>');">
+    <div class=" container">
+        <form method="post" id="regform" action="project-risk-assessment-edit.php">
+            <input type="hidden" name="id" value="<?php echo $row->id; ?>">
+            <br>
+            <!-- Circles which indicates the steps of the form: -->
+            <div class="progressBar">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+
+            <br>
+
+            <div class="container" id="middleContainer">
+                <!--General Info-->
+                <div class="tab">
+                    <div class="row">
+                        <div class="col-12">
+                            <b>General Information
+                                <a href="#" data-toggle="tooltip" title="To be completed for each project. See Chapter 3.D of Health Discipline Quality and Risk Management Standards for requirements when risk characteristic changes occur, or the client work involves periodic updating or repetitive production of client work product."><sup><img src="question.png" height="12"></sup></a></b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            Client Code:
+                        </div>
+                        <div class="col-3">
+                            <input name="clientCode" class="masked inputBox" oninput="this.className = ''" type="text" placeholder="0000XXX00-00" value="<?php echo $row->client_code; ?>">
+                        </div>
+                    </div>
+                    <hr class="form-divider">
+                    <!--ClientName-->
+                    <div class="row">
+                        <div class="col-3">
+                            Client Name:
+                        </div>
+                        <div class="col-3">
+                            <input name="clientName" oninput="this.className = ''" type="text" value="<?php echo $row->client_name; ?>">
+                        </div>
+                        <div class="col-3">
+                            Project Identification:
+                        </div>
+                        <div class="col-3">
+                            <input name="projectIdentification" oninput="this.className = ''" type="text" value="<?php echo $row->project_identification; ?>">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            Lead Consultant/Signer:
+                        </div>
+                        <div class="col-3">
+                            <input name="leadSigner" oninput="this.className = ''" type="text" value="<?php echo $row->lead_consultant; ?>">
+                        </div>
+                        <div class="col-3">
+                            Pre-Release Peer Reviewer:
+                        </div>
+                        <div class="col-3">
+                            <input name="peerReviewer" oninput="this.className = ''" type="text" value="<?php echo $row->peer_reviewer; ?>">
+                        </div>
+                    </div>
+                    <hr class="form-divider">
+                    <!--Authorization-->
+                    <div class="row">
+                        <div class="col-3">
+                            Authorized By:
+                        </div>
+                        <div class="col-3">
+                            <input name="authorizedBy" oninput="this.className = ''" type="text" value="<?php echo $row->authorized_by; ?>">
+                        </div>
+                        <div class="col-3">
+                            Authorization Date:
+                        </div>
+                        <div class="col-3">
+                            <input name="authorizationDate" oninput="this.className = ''" type="date" value="<?php echo $row->authorization_date; ?>">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            Authorization Method:
+                        </div>
+                        <div class="col-3">
+                            <input name="authorizationMethod" oninput="this.className = ''" type="text" value="<?php echo $row->authorization_method; ?>">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Project Experience-->
+                <div class="tab">
+                    <div class="row">
+                        <div class="col-12">
+                            <b>Project Experience Qualification (Only for SAO, ACA filings, Medicare Advantage, and
+                                State
+                                Medicaid
+                                Consulting)</b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            Name and Role of consultant(s) involved in the project who are "qualified"<a href="#" data-toggle="tooltip" title="See Community of Practice Quality Standards for each respective area of work."><sup><img src="question.png" height="12"></sup></a>
+                            to perform the
+                            work (leave blank when not applicable):
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-auto">
+                            Name:
+                        </div>
+                        <div class="col-3">
+                            <input name="qualifiedName" oninput="this.className = ''" type="text" value="<?php echo $row->consultant_name; ?>">
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-auto">
+                            Role:
+                        </div>
+                        <div class="col-3">
+                            <input name="qualifiedRole" oninput="this.className = ''" type="text" value="<?php echo $row->consultant_role; ?>">
+                        </div>
+                    </div>
+                    <hr class="form-divider">
+                    <!--Project Financial Risk-->
+                    <div class="row">
+                        <div class="col-12">
+                            <b>Project Financial Risk</b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            Is the project budget greater than $250,000?<a href="#" data-placement="left" data-toggle="tooltip" title="The budget size criteria is a proxy for project size, or importance to the client and/or the consultant. With project budget size and project importance often comes additional scrutiny from the client and more sensitivity to the result thus more risk to Milliman. For example, if the consultant responded 'yes', the consultant should consider upgrading the project's level of risk to a 2A from 2B and 2A+ from 2A."><sup><img src="question.png" height="12"></sup></a>
+                        </div>
+                        <div class="offset-2"></div>
+                        <div class="col-1 text-right">
+                            Yes
+                        </div>
+                        <div class="col-1">
+                            <input name="greaterThan" type="checkbox" class="checkboxes" value="<?php echo $row->project_budget; ?>">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            Is the negotiated budget and timeframe sufficient to complete the work?<a href="#" data-placement="left" data-toggle="tooltip" title="In some cases the consultant's practice may wish to undertake a project for a budget amount that will be unlikely to cover the actual costs to complete the work. In such cases the practice has that freedom. However, the consultant must recognize that there should be no reduction in the level of work actually done. We must at all times maintain the highest level of quality in the work product. With regard to undertaking a project that has an unrealistic deadline, it is once again expected that there will be no reduction in the level of work completed in order to maintain the highest level of quality in the work product. In this situation, either the project should be declined, or the risk level should be upgraded a level as described above in note (3). If budget inadequacy or deadline problems are discovered during the course of the project, the risk level should at once be upgraded as described above, and the necessary steps taken to complete the work in the highest quality fashion."><sup><img src="question.png" height="12"></sup></a>
+                        </div>
+                        <select class='col-2' id="negotiatedBudget" name="negotiatedBudget" id="negotiatedBudget" value="<?php echo $row->budget_timeframe; ?>">
+                            <option id="Yes" value="Yes">Yes</option>
+                            <option id="No" value="No">No</option>
+                            <option id="Unsure" value="Unsure">Unsure</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <!--Client Agreement-->
+                <div class="tab">
+                    <div class="row">
+                        <div class="offset-3"></div>
+                        <div class="col-3">
+                            Effective Date
+                        </div>
+                        <div class="col-3">
+                            Expiration Date
+                        </div>
+                        <div class="col-3">
+                            Comment
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            Consultant Services Agreement:
+                        </div>
+                        <div class="col-3">
+                            <input name="consultantServicesEffective" type="date" oninput="this.className = ''" value="<?php echo $row->consultant_service_effective; ?>">
+                        </div>
+                        <div class="col-3">
+                            <input name="consultantServicesExperation" type="date" oninput="this.className = ''" value="<?php echo $row->consultant_service_expiration; ?>">
+                        </div>
+                        <div class="col-3">
+                            <input name="consultantServicesComment" oninput="this.className = ''" type="text" value="<?php echo $row->consultant_service_comment; ?>">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            BAA (If Applicable):
+                        </div>
+                        <div class="col-3">
+                            <input name="baaEffective" type="date" oninput="this.className = ''" value="<?php echo $row->baa_effective; ?>">
+                        </div>
+                        <div class="col-3">
+                            <input name="baaExperation" type="date" oninput="this.className = ''" value="<?php echo $row->baa_expiration; ?>">
+                        </div>
+                        <div class="col-3">
+                            <input name="baaComment" oninput="this.className = ''" type="text" value="<?php echo $row->baa_comment; ?>">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            Client Risk Assessment:
+                        </div>
+                        <div class="col-3">
+                            <input name="craEffective" type="date" oninput="this.className = ''" value="<?php echo $row->client_risk_effective; ?>">
+                        </div>
+                        <div class="col-3">
+                            <input name="craExperation" type="date" oninput="this.className = ''" value="<?php echo $row->client_risk_expiration; ?>">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3">
+                            Client Screening:
+                        </div>
+                        <div class="col-3">
+                            <input name="clientScreeingEffective" type="date" oninput="this.className = ''" value="<?php echo $row->client_screening_effective; ?>">
+                        </div>
+                    </div>
+                    <hr class="form-divider">
+                    <div class="row">
+                        <div class="col-5">
+                            <b> For All Clients </b>
+                        </div>
+                        <div class="col-1 text-center">
+                            Yes
+                        </div>
+                        <div class="col-6">
+                            Comment For No
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-5">
+                            Completed Project Log
+                        </div>
+                        <div class="col-1">
+                            <input name="completedProjectLogCheckbox" type="checkbox" class="checkboxes" id="CompletedProjectLogButton" onClick="InverseCheckBoxVisibility(this.id)" value="<?php echo $row->completed_log; ?>">
+                        </div>
+                        <div class="col-6">
+                            <input name="competedProjectLogComment" oninput="this.className = ''" type="text" id="CompletedProjectLog" value="<?php echo $row->completed_log_comment; ?>">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-5">
+                            Evidence of email conflict check on project
+                        </div>
+                        <div class="col-1">
+                            <input name="emailConflictCheckbox" type="checkbox" class="checkboxes" id="EvidenceOfEmailConflictButton" onClick="InverseCheckBoxVisibility(this.id)" value="<?php echo $row->conflict_check; ?>">
+                        </div>
+                        <div class="col-6">
+                            <input name="emailConflictComment" oninput="this.className = ''" type="text" id="EvidenceOfEmailConflict" value="<?php echo $row->conflict_check_comment; ?>">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Project risk-->
+                <div class="tab">
+                    <div class="row">
+                        <div class="col-auto">
+                            Project Risk Level:
+                        </div>
+                        <select class="col-3" id="riskLevel" name="riskLevel" id="riskLevel" value="<?php echo $row->risk_level; ?>">
+                            <option id="1" value="1">1</option>
+                            <option id="2A" value="2A">2A</option>
+                            <option id="2B" value="2B">2B</option>
+                            <option id="2C" value="2C">2C</option>
+                            <option id="3" value="3">3</option>
+                        </select>
+                    </div>
+
+                    <hr class="form-divider">
+
+                    <div class="row">
+                        <div class="col-12">
+                            Special Risk Mgt (SR) / High Risk (HR) / Sensitivity (HS) Conditions Present:
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="offset-1"></div>
+                        <div class="col-2 text-center">
+                            None
+                            <input name="riskLevelNone" type="checkbox" class="checkboxes" value="<?php echo $row->special_risk_none; ?>">
+                        </div>
+                        <div class="col-2 text-center">
+                            SR
+                            <input name="riskLevelSR" type="checkbox" class="checkboxes" value="<?php echo $row->special_risk_sr; ?>">
+                        </div>
+                        <div class="col-2 text-center">
+                            HR(+)
+                            <input name="riskLevelHR" type="checkbox" class="checkboxes" value="<?php echo $row->special_risk_hr; ?>">
+                        </div>
+                        <div class="col-2 text-center">
+                            HS(+)
+                            <input name="riskLevelHS" type="checkbox" class="checkboxes" value="<?php echo $row->special_risk_hs; ?>">
+                        </div>
+                        <div class="col-2 text-center">
+                            N/A(2C)
+                            <input name="riskLevelNA" type="checkbox" class="checkboxes" value="<?php echo $row->special_risk_na; ?>">
+                        </div>
+                    </div>
+
+                    <hr class="form-divider">
+
+                    <!--Approval and Review-->
+                    <div class="row">
+                        <div class="col-10">
+                            Board/ERC Approved Non-Standard CSA Provisions Present:<a href="#" data-toggle="tooltip" title="Special requirements may be in place for certain clients with non-standard CSA provisions (see Chapter 2.B of Health Discipline Quality and Risk Management Standards)."><sup><img src="question.png" height="12"></sup></a>
+                        </div>
+                        <div class="col-1 text-right">
+                            Yes
+                        </div>
+                        <div class="col-1">
+                            <input name="nonstandardCSAPrivisions" type="checkbox" class="checkboxes" value="<?php echo $row->csa_provision; ?>">
+                        </div>
+                    </div>
+
+                    <hr class="form-divider">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <b> Additional External Review</b><a href="#" data-toggle="tooltip" title="Applicable where either (a) high risk (HR) or high sensitivity (HS) conditions are present, or (b) risk management oversight (RM Oversight) is required. Additional situations may require external high level peer review. Where additional external review is required, please also secure a completed Review Form from the external high level reviewer."><sup><img src="question.png" height="12"></sup></a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-10">
+                            <p>Is external review required for this project for any reason?</p>
+                        </div>
+                        <div class="col-1 text-right">
+                            Yes
+                        </div>
+                        <div class="col-1">
+                            <input name="additionalExternalReviewCheckbox" type="checkbox" class="checkboxes" id="AdditionalExternalReviewButtonWithDiv" onClick="CheckBoxVisibility(this.id)" value="<?php echo $row->external_review; ?>">
+                        </div>
+                    </div>
+
+                    <div class="row" id="AdditionalExternalReview">
+                        <div class="col-9">
+                            Principal Providing External Peer Review:
+                        </div>
+                        <div class="col-3">
+                            <input name="additionalExternalReviewComment" oninput="this.className = ''" type="text" id="AdditionalExternalReviewCheckBox" value="<?php echo $row->external_review_comment; ?>">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Project Risk-->
+                <div class="tab">
+                    <div class="row">
+                        <div class="col-12 form-title">
+                            Project Risk Assessment Statement
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-12">
+                            <b> I am familiar with this project and client, and verify that: </b>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="offset-1"> </div>
+                        <div class="col-11">
+                            <div class="row">
+                                <b>(a)</b>
+                                The above risk assignments have been appropriately made according to the Health
+                                Discipline’s
+                                Quality
+                                and Risk Management Standards; and
+                            </div>
+                            <div class="row">
+                                <b>(b)</b>
+                                The appropriate contractual risk protections are in place.
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="form-divider">
+                    <!--Signature-->
+                    <div class="row">
+                        <div class="col-2">
+                            <b> Principal: </b>
+                        </div>
+                        <div class="col-3">
+                            <input name="principle" oninput="this.className = ''" type="text" value="<?php echo $row->principal; ?>">
+                        </div>
+                        <div class="offset-2"></div>
+                        <div class="col-2">
+                            <b> Date: </b>
+                        </div>
+                        <div class="col-3">
+                            <input name="principleDate" oninput="this.className = ''" type="datetime-local" value="<?php echo date("Y-m-d\TH:i:s", strtotime($row->sign_date)) ?>">
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+            </div>
+            <input type=hidden value="<?php echo $row->created; ?>" name="created">
+            <div class="bottomContainer">
+
+                <div style="overflow:auto;">
+                    <div style="float:right">
+                        <input class="submit-button" id="subBtn" type="submit" value="Submit" name="submit">
+                    </div>
+                    <div style="float:left;">
+                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    </div>
+                    <div style="float:left;">
+                        <button type="button" id="cancelBtn" onclick="confirmDelete('CRAIndex.php')">Cancel</button>
+                    </div>
+                    <div style="float:right;">
+                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <script src="js/QRM.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <?php
+    if (isset($_POST["submit"])) {
+        $xId = $_POST['id'];
+        $xClient_code = $_POST['clientCode'];
+        $xClient_name = $_POST['clientName'];
+        $xProject_identification = $_POST['projectIdentification'];
+        $xLead_consultant = $_POST['leadSigner'];
+        $xPeer_reviewer = $_POST['peerReviewer'];
+        $xAuthorized_by = $_POST['authorizedBy'];
+        $xAuthorization_date = $_POST['authorizationDate'];
+        $xAuthorization_method = $_POST['authorizationMethod'];
+        $xConsultant_name = $_POST['qualifiedName'];
+        $xConsultant_role = $_POST['qualifiedRole'];
+        $xProject_budget = $_POST['greaterThan'];
+        $xBudget_timeframe = $_POST['negotiatedBudget'];
+        $xConsultant_service_effective = $_POST['consultantServicesEffective'];
+        $xConsultant_service_expiration = $_POST['consultantServicesExperation'];
+        $xConsultant_service_comment = $_POST['consultantServicesComment'];
+        $xBaa_effective = $_POST['baaEffective'];
+        $xBaa_expiration = $_POST['baaExperation'];
+        $xBaa_comment = $_POST[baaComment];
+        $xClient_risk_effective = $_POST['craEffective'];
+        $xClient_risk_expiration = $_POST['craExperation'];
+        $xClient_screening_effective = $_POST['clientScreeingEffective'];
+        $xCompleted_log = $_POST['completedProjectLogCheckbox'];
+        $xCompleted_log_comment = $_POST['competedProjectLogComment'];
+        $xConflict_check = $_POST['emailConflictCheckbox'];
+        $xConflict_check_comment = $_POST['emailConflictComment'];
+        $xRisk_level = $_POST['riskLevel'];
+        $xSpecial_risk_none = $_POST['riskLevelNone'];
+        $xSpecial_risk_sr = $_POST['riskLevelSR'];
+        $xSpecial_risk_hr = $_POST['riskLevelHR'];
+        $xSpecial_risk_hs = $_POST['riskLevelHS'];
+        $xSpecial_risk_na = $_POST['riskLevelNA'];
+        $xCsa_provision = $_POST['nonstandardCSAPrivisions'];
+        $xExternal_review = $_POST['additionalExternalReviewCheckbox'];
+        $xExternal_review_comment = $_POST['additionalExternalReviewComment'];
+        $xPrincipal = $_POST['principle'];
+        $xSign_date = date("Y-m-d H:i:s", strtotime($_POST["principleDate"]));
+        $xCreated = $_POST['created'];
+        $xLast_edit = $date;
+        pra_insert_update($xId, $xClient_code, $xClient_name, $xProject_identification, $xLead_consultant, $xPeer_reviewer, $xAuthorized_by, $xAuthorization_date, $xAuthorization_method, $xConsultant_name, $xConsultant_role, $xProject_budget, $xBudget_timeframe, $xConsultant_service_effective, $xConsultant_service_expiration, $xConsultant_service_comment, $xBaa_effective, $xBaa_expiration, $xBaa_comment, $xClient_risk_effective, $xClient_risk_expiration, $xClient_screening_effective, $xCompleted_log, $xCompleted_log_comment, $xConflict_check, $xConflict_check_comment, $xRisk_level, $xSpecial_risk_none, $xSpecial_risk_sr, $xSpecial_risk_hr, $xSpecial_risk_hs, $xSpecial_risk_na, $xCsa_provision, $xExternal_review, $xExternal_review_comment, $xPrincipal, $xSign_date, $xCreated, $xLast_edit);
+        //directs to PRA index page on submission
+        header('Location: PRAIndex.php');
+    }
+    ?>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"').tooltip();
+    })
+</script>
+
+                              </xmp></pre>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+          <!--JS Sample-->
+          <div class="row bubble-row" data-aos="fade-left" id="Controller" onmouseover='hoverBubble("Controller")' onmouseout='unhoverBubble("Controller")' onclick='toggleVisible("ControllerCode","Controller")'>
+              <div class="col-12 bubble-code">
+                  <div>
+                      <table class="bubble-table">
+                          <tbody>
+                              <tr>
+                                  <h2>Form Javascript</h2>
+                                  <p>Javascript used for the forms</p>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="code" id="ControllerCode">
+                      <table class="bubble-table">
+                          <tbody>
+                              <tr>
+                                <pre><xmp>
+
+function CheckBoxVisibility(buttonId) {
+  //Makes text boxes appear or dissapear based on whether a checkbox is checked
+  var inputId = buttonId.split("Button");
+  if (document.getElementById(buttonId).checked) {
+    document.getElementById(inputId[0]).style.visibility = "visible";
+    if (inputId.length == 2 && inputId[1] == "WithDiv") {
+      document.getElementById(inputId[0] + "CheckBox").className = "";
+    } else {
+      document.getElementById(inputId[0]).className = "";
+    }
+  } else {
+    if (inputId.length == 2 && inputId[1] == "WithDiv") {
+      document.getElementById(inputId[0] + "CheckBox").value = "";
+      document.getElementById(inputId[0] + "CheckBox").className =
+        "hiddenInputBox";
+    } else {
+      document.getElementById(inputId[0]).value = "";
+      document.getElementById(inputId[0]).className = "hiddenInputBox";
+    }
+    document.getElementById(inputId[0]).style.visibility = "hidden";
+  }
+}
+
+function InverseCheckBoxVisibility(buttonId) {
+  //Makes text boxes dissapear based on whether a checkbox is checked
+  var inputId = buttonId.split("Button");
+  if (document.getElementById(buttonId).checked) {
+    if (inputId.length == 2 && inputId[1] == "WithDiv") {
+      document.getElementById(inputId[0] + "CheckBox").value = "";
+    } else {
+      document.getElementById(inputId[0]).value = "";
+    }
+    document.getElementById(inputId[0]).className = "hiddenInputBox";
+    document.getElementById(inputId[0]).style.visibility = "hidden";
+  } else {
+    document.getElementById(inputId[0]).style.visibility = "visible";
+    document.getElementById(inputId[0]).className = "";
+  }
+}
+
+//runs checkboxvisibility and inversecheckboxvisibility for all fields that require it
+function PRACheckboxTest() {
+  InverseCheckBoxVisibility("EvidenceOfEmailConflictButton");
+  InverseCheckBoxVisibility("CompletedProjectLogButton");
+  CheckBoxVisibility("AdditionalExternalReviewButtonWithDiv");
+}
+
+//runs checkboxvisibility and inversecheckboxvisibility for all fields that require it
+function CRACheckboxTest() {
+  CheckBoxVisibility("governmentalPublicButton");
+  CheckBoxVisibility("coreBusinessIsRiskTakingButton");
+  CheckBoxVisibility("publiclyTradedButton");
+  CheckBoxVisibility("subsidiaryButton");
+  CheckBoxVisibility("stockCompanyOtherButton");
+  CheckBoxVisibility("nonProfitButton");
+}
+
+//-----------javascript for next and previous tabs-----------
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+    document.getElementById("cancelBtn").style.display = "inline";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+    document.getElementById("cancelBtn").style.display = "none";
+  }
+  if (n == x.length - 1) {
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("subBtn").style.display = "inline";
+    document.getElementById("cancelBtn").style.display = "none";
+  } else {
+    document.getElementById("nextBtn").style.display = "inline";
+    document.getElementById("nextBtn").innerHTML = "Next";
+    document.getElementById("subBtn").style.display = "none";
+    document.getElementById("cancelBtn").innerHTML = "Cancel";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n);
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  // if (currentTab >= x.length) {
+  //   // ... the form gets submitted:
+  //   document.getElementById("regForm").submit();
+  //   return false;
+  // }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+
+  switch (document.head.id) {
+    case "PRApage":
+      PRACheckboxTest();
+      break;
+    case "CRApage":
+      CRACheckboxTest();
+      break;
+  }
+}
+
+function validateForm() {
+  return true;
+  // // This function deals with validation of the form fields
+  // var x,
+  //   y,
+  //   i,
+  //   valid = true;
+  // x = document.getElementsByClassName("tab");
+  // y = x[currentTab].getElementsByTagName("input");
+  // // A loop that checks every input field in the current tab:
+  // for (i = 0; i < y.length; i++) {
+  //   // If a field is empty...
+  //   if (y[i].value == "" && y[i].className != "hiddenInputBox") {
+  //     // add an "invalid" class to the field:
+  //     y[i].className += " invalid";
+  //     // and set the current valid status to false:
+  //     valid = false;
+  //   }
+  // }
+  // // If the valid status is true, mark the step as finished and valid:
+  // if (valid) {
+  //   document.getElementsByClassName("step")[currentTab].className += " finish";
+  // }
+  // return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i,
+    x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+
+// Highlights tab in nav bar if selected ....... CHANGE LINK WHEN SITE IS PUBLISHED
+function activeNav() {
+  switch (document.head.id) {
+    case "PRApage":
+      document.getElementById("PRANav").className = "current";
+      document.getElementById("CRANav").className = "styled";
+      break;
+    case "CRApage":
+      document.getElementById("CRANav").className = "current";
+      document.getElementById("PRANav").className = "styled";
+      break;
+    default:
+      document.getElementById("CRANav").className = "styled";
+      document.getElementById("PRANav").className = "styled";
+      break;
+  }
+}
+
+//makes sure pressing enter does not submit form
+function stopRKey(evt) {
+  var evt = evt ? evt : event ? event : null;
+  var node = evt.target ? evt.target : evt.srcElement ? evt.srcElement : null;
+  if (
+    evt.keyCode == 13 &&
+    (node.type == "text" || node.type == "date" || node.type == "checkbox")
+  ) {
+    return false;
+  }
+}
+
+//Searches through data to return dynamically
+function searchTable(form) {
+  var input, filter, found, table, tr, td, i, j;
+  inputClient = document.getElementById("searchBarColumnOne");
+  inputConsultant = document.getElementById("searchBarColumnTwo");
+  filterClient = inputClient.value.toUpperCase();
+  filterConsultant = inputConsultant.value.toUpperCase();
+  table = document.getElementById("myTable");
+  trArray = document.getElementsByTagName("tr");
+  var x = 0;
+  var y = 1;
+  if (form == "PRA") {
+    y++;
+  }
+  for (i = 1; i < trArray.length; i++) {
+    td = trArray[i].getElementsByTagName("td");
+    if (
+      (filterClient == "" && filterConsultant == "") ||
+      (td[x].innerHTML.toUpperCase().indexOf(filterClient) > -1 &&
+        filterConsultant == "") ||
+      (td[y].innerHTML.toUpperCase().indexOf(filterConsultant) > -1 &&
+        filterClient == "") ||
+      (td[x].innerHTML.toUpperCase().indexOf(filterClient) > -1 &&
+        td[y].innerHTML.toUpperCase().indexOf(filterConsultant) > -1)
+    ) {
+      trArray[i].style.display = "";
+    } else {
+      trArray[i].style.display = "none";
+    }
+  }
+}
+
+//Sorts data on click based off of arrow direction
+function sortTable(n) {
+  var id = sortTable.caller.arguments[0].target;
+  var idLength = id.innerHTML.length;
+  if (id.innerHTML.substring(idLength - 1, idLength) == "↑") {
+    var up = true;
+  } else {
+    up = false;
+  }
+  var cols = document.getElementsByClassName("colummn");
+  for (i = 0; i < cols.length; i++) {
+    var size = cols[i].innerHTML.length - 1;
+    cols[i].innerHTML = cols[i].innerHTML.substring(0, size);
+    cols[i].innerHTML = cols[i].innerHTML + "&#8597;";
+  }
+  var table,
+    rows,
+    switching,
+    i,
+    x,
+    y,
+    shouldSwitch,
+    dir,
+    switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc";
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < rows.length - 1; i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount++;
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+  if (dir == "asc") {
+    id.innerHTML = id.innerHTML.substring(0, idLength - 1);
+    id.innerHTML += "&#8595;";
+  } else {
+    id.innerHTML = id.innerHTML.substring(0, idLength - 1);
+    id.innerHTML += "&#8593;";
+  }
+}
+
+// Confirms cancel action
+function confirmDelete(loc) {
+  var con = confirm("Are you sure you want to cancel?");
+  if (con) {
+    location = loc;
+  }
+}
+
+//Loads checkboxes as checked on edit pages
+function showChecked(className) {
+  var checkboxes = document.getElementsByClassName(className);
+  var i;
+  for (i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].value != 0) {
+      checkboxes[i].checked = true;
+    } else {
+      checkboxes[i].checked = false;
+    }
+  }
+}
+
+//sets dropdowns in edit pages
+function setSelectedIndex(id, value) {
+  if (value == "Oher") {
+    value = "Other";
+  }
+  var element = document.getElementById(id);
+  for (var i = 0; i < element.options.length; i++) {
+    if (element.options[i].text == value) {
+      element.options[i].selected = true;
+      return;
+    }
+  }
+}
+
+
+                                  </xmp></pre>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--Footer-->
+            <hr noshade="noshade" class="row-divider">
+            <div class="row">
+                <div class="col-3 footer-col">
+                    <a href="https://www.linkedin.com/in/bendantan/">
+                        <img src="../../images/linkedin.png" alt="" class="linkImage">
+                    </a>
+                </div>
+                <div class="col-6 footer-col">
+                    <a href="../../pages/About/index.html">
+                        <h4>About Me</h4>
+                    </a>
+                </div>
+                <div class="col-3 footer-col">
+                    <a href="mailto:BenDanTan@gmail.com">
+                        <img src="../../images/gmail.png" alt="" class="linkImage">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

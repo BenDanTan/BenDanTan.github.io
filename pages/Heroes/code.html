@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Benjamin Tan</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../assets/css/stylesheet.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="../../assets/scripts.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="../../assets/jquery.js"></script>
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+    </head>
+    <body class="subProjectBody" onload="loadSubProjectPage()">
+        <script>
+            AOS.init();
+        </script>
+        <div id="sidenav" class="nav">
+            <span onclick="closeNav()" class="closeButton" id="closeButton">
+                <i class="material-icons">close</i>
+            </span>
+            <span onclick="goHome()" class="homeButton">
+                <i class="material-icons">home</i>
+            </span>
+            <div>
+                <a href="../../pages/Convergence/index.html" class="navContent">Convergence Resource Center</a>
+                <br>
+                <br>
+                <a href="../../pages/Milliman/index.html" class="navContent">Milliman</a>
+                <br>
+                <br>
+                <a href="../../pages/Heroes/index.html" class="navContent">Heroes for Healthcare</a>
+                <br>
+                <br>
+                <a href="../../pages/CTW/index.html" class="navContent">Code the Way Bootcamp</a>
+                <br>
+                <br>
+                <a href="../../pages/InProgress/index.html" class="navContent">Current Projects</a>
+                <br>
+                <br>
+                <a href="../../pages/About/index.html" class="navContent">About Me</a>
+
+            </div>
+        </div>
+
+        <div class="row subProjectTitle" id="header">
+            <div class="col-1">
+                <span onclick="openNav()" class="subOpenButton" id="openButton">
+                    <i class="material-icons">menu</i>
+                </span>
+            </div>
+            <div class="col-11">
+                <table class="bubble-table">
+                    <td class="align-middle">
+                        <h2 class="h2Subheader">Heroes for Healthcare</h2>
+                    </td>
+                </table>
+            </div>
+        </div>
+        <div class="container-fluid subProjectPage-container" id="page">
+          <!--View Model Sample-->
+          <div class="row bubble-row" data-aos="fade-left" id="Model" onmouseover='hoverBubble("Model")' onmouseout='unhoverBubble("Model")' onclick='toggleVisible("ModelCode","Model")'>
+            <div class="col-12 bubble-code">
+                <div>
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                                <h2>Donor Model</h2>
+                                <p>Model for recorded donors</p>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code" id="ModelCode">
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                              <pre><xmp>
+
+using System;
+using HerosForHealthcare.Services;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace HerosForHealthcare.Models.Entities
+{
+    public class DonorModel : IEntity
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Category { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        public string TypeOfDonor { get; set; }
+        public string Website { get; set; }
+        public string ReferredBy { get; set; }
+        public int? PrimaryContactId { get; set; }
+        public List<DonationModel> Donations { get; set; } = new List<DonationModel>();
+        public List<DonorContactModel> Contacts { get; set; } = new List<DonorContactModel>();
+        public List<DonorNoteModel> Notes { get; set; } = new List<DonorNoteModel>();
+
+        public double GetDonationTotal()
+        {
+            double total = Donations.Sum(donation => donation.Amount);
+            return total;
+        }
+
+        public string GetRank()
+        {
+            double TotalAmount = GetDonationTotal();
+            switch (TotalAmount)
+            {
+                case var expression when TotalAmount >= 5000:
+                    return "Platinum";
+                case var expression when TotalAmount >= 2500:
+                    return "Gold";
+                case var expression when TotalAmount >= 1500:
+                    return "Silver";
+                case var expression when TotalAmount >= 1000:
+                    return "Bronze";
+                default:
+                    return "";
+            }
+        }
+
+        public DonorContactModel GetPrimaryContact()
+        {
+            List<DonorContactModel> primaryContact = Contacts.Where(contact => contact.Id == PrimaryContactId).ToList();
+
+            if (primaryContact.Count != 0)
+            {
+                return primaryContact[0];
+            }
+            else
+            {
+                return new DonorContactModel();
+            }
+        }
+    }
+}
+
+                              </xmp></pre>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+          <!--View Sample-->
+          <div class="row bubble-row" data-aos="fade-left" id="View" onmouseover='hoverBubble("View")' onmouseout='unhoverBubble("View")' onclick='toggleVisible("ViewCode","View")'>
+            <div class="col-12 bubble-code">
+                <div>
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                                <h2>Edit Donor Page View</h2>
+                                <p>Front end code for the donor edit page</p>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code" id="ViewCode">
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                              <pre><xmp>
+
+@using HerosForHealthcare.Models.Entities;
+@model DonorModel
+@{
+    ViewBag.Title = "DonorEdit";
+}
+<form action="~/Donor/Edit" autocomplete="off" method="post">
+    <input name="IdTP" value="@Model.Id" hidden="hidden" />
+    <div class="container">
+        <div class="row row-spacing-lg">
+            <div class="col-lg-9">
+                @Html.ActionLink("Back", "DonorDetail", "Donor", new { id = Model.Id }, new { @class = "hbutton color-red" })
+            </div>
+        </div>
+        <h4 class="size-subheader primary-font">BASIC INFO</h4>
+        <div class="row row-spacing-sm">
+            <div class="col-sm-4">
+                <span>Name</span>
+                <input class="form-input " name="Name" value="@Model.Name" required />
+            </div>
+            <div class="col-sm-4">
+                <span>Category</span>
+                <select class="form-input" name="Category">
+                    <option selected hidden>@Model.Category</option>
+                    <option value="Organization">Organization</option>
+                    <option value="Family">Family</option>
+                    <option value="Individual">Individual</option>
+                    <option value="Grant">Grant</option>
+                </select>
+            </div>
+        </div>
+        <h4 class="size-subheader primary-font">ADDRESS</h4>
+        <div class="row row-spacing-sm">
+            <div class="col-sm-4">
+                <span>Street Address</span>
+                <input class="form-input " name="Address" value="@Model.Address" />
+            </div>
+        </div>
+        <div class="row row-spacing-sm">
+            <div class="col-sm-4">
+                <span>City</span>
+                <input class="form-input " name="City" value="@Model.City" />
+            </div>
+            <div class="col-sm-4">
+                <span>State</span>
+                @Html.Partial("~/Views/PartialViews/_StateDropdown.cshtml", new { currentProperty = "State" , currentValue = Model.State})
+            </div>
+            <div class="col-sm-4">
+                <span>Zip Code</span>
+                <input class="form-input " name="Zip" value="@Model.Zip" />
+            </div>
+        </div>
+        <h4 class="size-subheader primary-font">PRIMARY CONTACT</h4>
+        <div class="row row-spacing-sm">
+            <div class="col-sm-4">
+                <span>Primary Contact</span>
+                <select class="form-input" name="PrimaryContactId">
+                    @foreach (DonorContactModel DonorContact in Model.Contacts)
+                    {
+                        if (Model.PrimaryContactId == DonorContact.Id)
+                        {
+                            <option value="@DonorContact.Id" selected="selected">@DonorContact.FirstName @DonorContact.LastName</option>
+                        }
+                        else
+                        {
+                            <option value="@DonorContact.Id">@DonorContact.FirstName @DonorContact.LastName</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <h4 class="size-subheader primary-font">OTHER</h4>
+        <div class="row row-spacing-sm">
+            <div class="col-sm-4">
+                <span>Type Of Donor</span>
+                <select class="form-input" name="TypeOfDonor" value="@Model.TypeOfDonor">
+                    <option value="Annual">Annual</option>
+                    <option value="Random">Random</option>
+                    <option value="Frequently">Frequently</option>
+                </select>
+            </div>
+            <div class="col-sm-8">
+                <span>Website</span>
+                <input class="form-input " name="Website" value="@Model.Website"/>
+            </div>
+        </div>
+        <div class="row row-spacing-sm">
+            <div class="col-sm-12">
+                <span>Referred By</span>
+                <input class="form-input " type="text" name="ReferredBy" value=@Model.ReferredBy/>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="hbutton color-blue" type="submit">Save</button>
+        </div>
+    </div>
+</form>
+
+
+                              </xmp></pre>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+          <!--Controller Sample-->
+          <div class="row bubble-row" data-aos="fade-left" id="Controller" onmouseover='hoverBubble("Controller")' onmouseout='unhoverBubble("Controller")' onclick='toggleVisible("ControllerCode","Controller")'>
+              <div class="col-12 bubble-code">
+                  <div>
+                      <table class="bubble-table">
+                          <tbody>
+                              <tr>
+                                  <h2>Donor Controller</h2>
+                                  <p>A controller which managed recorded donors</p>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div class="code" id="ControllerCode">
+                      <table class="bubble-table">
+                          <tbody>
+                              <tr>
+                                <pre><xmp>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
+using HerosForHealthcare.Models.Entities;
+using HerosForHealthcare.Services;
+
+namespace HerosForHealthcare.Controllers
+{
+    [AccessDeniedAuthorize(Roles = "Admin, Financial")]
+    public class DonorController : Controller
+    {
+        private DonorService service = new DonorService();
+        public ActionResult Index()
+        {
+            return View(service.GetAllDonors());
+        }
+        public ActionResult DonorCreate()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> DonorCreation(DonorModel donor)
+        {
+            await service.AddDonorAsync(donor);
+            return RedirectToAction("Index", service.GetAllDonors());
+        }
+        public ActionResult DonorEdit(int Id)
+        {
+            DonorModel editDonor = service.GetDonorById(Id);
+            if (editDonor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(editDonor);
+        }
+        [HttpPost]
+        public async Task<ActionResult> Edit(DonorModel donor, int idTP)
+        {
+            donor.Id = idTP;
+            await service.EditDonorAsync(donor);
+            return RedirectToAction("DonorDetail", "Donor", new { id = idTP });
+        }
+        public ActionResult DonorDetail(int id)
+        {
+            DonorModel viewDonor = service.GetDonorById(id);
+            if (viewDonor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(viewDonor);
+        }
+    }
+}
+
+                                </xmp></pre>
+                              </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--CSS Sample-->
+            <div class="row bubble-row" data-aos="fade-left" id="CSS" onmouseover='hoverBubble("CSS")' onmouseout='unhoverBubble("CSS")' onclick='toggleVisible("CSSCode","CSS")'>
+                <div class="col-12 bubble-code">
+                    <div>
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <h2>Site CSS</h2>
+                                    <p>Styling applied to the application</p>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="code" id="CSSCode">
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                  <pre><xmp>
+
+/*GENERAL*/
+
+body{
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+placeholder{
+    color: #888888;
+}
+
+.primary-font {
+    font-family: 'Nunito Sans', sans-serif;
+    letter-spacing: 2px;
+}
+
+.secondary-font {
+    font-family: "Montserrat", sans-serif;
+}
+
+.font-bold{
+    font-weight: bold;
+}
+
+.color-blue {
+    color: #1F3B5B; /*Previously #1E6397*/
+}
+
+.color-red {
+    color: #AE1917;
+}
+
+.color-gray {
+    color: #333745;
+}
+
+.color-white {
+    color: white;
+}
+
+.color-black {
+    color: black;
+}
+
+.color-danger{
+    color: red;
+}
+
+.size-header {
+    font-size: 36px;
+}
+
+.size-subheader {
+    font-size: 24px;
+}
+
+.size-midheader{
+    font-size: 18px;
+}
+
+.size-body {
+    font-size: 12px;
+}
+
+.hover-pointer:hover {
+    cursor: pointer;
+}
+
+.row-spacing-lg{
+    padding-bottom: 20px;
+}
+
+.row-spacing-md{
+    padding-bottom: 15px;
+}
+
+.row-spacing-sm {
+    padding-bottom: 10px;
+}
+
+.row-spacing-xs{
+    padding-bottom: 5px;
+}
+
+.right-spacing-lg {
+    margin-right: 20px;
+}
+
+.right-spacing-md {
+    margin-right: 15px;
+}
+
+.right-spacing-sm {
+    margin-right: 10px;
+}
+
+.right-spacing-xs {
+    margin-right: 5px;
+}
+
+.left-spacing-lg {
+    margin-left: 20px;
+}
+
+.left-spacing-md {
+    margin-left: 15px;
+}
+
+.left-spacing-sm {
+    margin-left: 10px;
+}
+
+.left-spacing-lg {
+    margin-left: 5px;
+}
+
+.remove_decoration ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.info_separate {
+    padding: 2px 5px 2px 5px;
+    border-left: solid;
+    border-width: 1px;
+}
+
+.white-space {
+    white-space: pre-wrap;
+}
+
+
+/*BUTTONS*/
+
+.hbutton { /*Does not have border, color, or font*/
+    transition: .25s ease-in-out;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    width: 120px;
+    height: 40px;
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer !important;
+    text-decoration: none !important;
+}
+
+    .hbutton.color-blue {
+        border: 1px solid #1F3B5B;
+    }
+
+        .hbutton.color-blue:hover {
+            background-color: #1F3B5B;
+            color: white;
+        }
+
+    .hbutton.color-red {
+        border: 1px solid #AE1917;
+    }
+
+        .hbutton.color-red:hover {
+            background-color: #AE1917;
+            color: white;
+        }
+
+    .hbutton.primary-font{
+        letter-spacing: 0px;
+        font-weight: normal;
+    }
+
+.expanding-button {
+    opacity: 0;
+    height: 0;
+    transform: scale(0,1);
+    transition: ease-in-out .3s;
+}
+
+    .table-row:hover .expanding-button {
+        transform: scale(1);
+        height: 40px;
+        opacity: 1;
+    }
+
+
+
+
+
+/*FORMS*/
+
+input,select,textarea{
+    outline: none;
+    color: #333333; /*Dark gray*/
+    border-radius: 3px;
+    border: solid;
+    border-width: 1px;
+    text-decoration: none;
+    padding-left: 10px; /*Moves text inside input box*/
+}
+
+.form-input{
+    width: 100%;
+}
+
+
+
+
+/*TABLES*/
+
+.table-head {
+    font-size: 16px;
+    background-color: #13293d;
+    letter-spacing: 2px;
+}
+
+.table-row {
+    height: 25px;
+}
+
+    .table-row:hover {
+        color: black;
+        background-color: #f5f5f5;
+        cursor: pointer;
+    }
+
+
+
+
+
+/*NAVBAR*/
+.nav > li > a.underline-effect {
+    padding-bottom: 0px;
+    line-height: 2px;
+    padding-top:25px;
+}
+
+.underline-effect:after {
+    content: '';
+    margin: auto;
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+    border-bottom: 2px solid;
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: scale(0,1);
+    transform: scale(0,1);
+    position: inherit;
+    top: -7px;
+}
+
+.underline-effect:hover:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+    /*SIDEBARS*/
+.userEmail__subHead {
+   
+    opacity: .8;
+    font-size: 18px;
+}
+.sidebar {
+    width: 20%;
+    height: 100vh;
+    float: left;
+    position: fixed;
+    margin: 0 !important;
+}
+
+#user__partial {
+    height: 100% !important;
+}
+
+.user__col {
+    height: 100vh;
+    padding: 0 !important;
+}
+
+.sidebar__hr {
+    width: 75%;
+}
+
+.sidebar--userBlue {
+    background-color: #1F3B5B;
+}
+
+
+
+.container__user {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh;
+}
+
+.sidebar__link {
+   
+    padding: 0;
+    align-content: center;
+    width: 100%;
+    opacity:.7;
+}
+
+    .sidebar__link:hover {
+        background-color: rgba(100,100,100,0) !important;
+        text-decoration: none !important;
+        color:white;
+        opacity:1;
+    }
+
+.sidebarLink__holder {
+    align-content: center;
+    text-align: center;
+    
+}
+
+.sidebar__row {
+    padding-bottom: 10%;
+}
+
+    /*Autocomplete styling*/
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+    width:100%;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+    .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        border-bottom: 1px solid #d4d4d4;
+    }
+
+        .autocomplete-items div:hover {
+            /*when hovering an item:*/
+            background-color: #e9e9e9;
+        }
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+}
+
+                                  </xmp></pre>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--Footer-->
+            <hr noshade="noshade" class="row-divider">
+            <div class="row">
+                <div class="col-3 footer-col">
+                    <a href="https://www.linkedin.com/in/bendantan/">
+                        <img src="../../images/linkedin.png" alt="" class="linkImage">
+                    </a>
+                </div>
+                <div class="col-6 footer-col">
+                    <a href="../../pages/About/index.html">
+                        <h4>About Me</h4>
+                    </a>
+                </div>
+                <div class="col-3 footer-col">
+                    <a href="mailto:BenDanTan@gmail.com">
+                        <img src="../../images/gmail.png" alt="" class="linkImage">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

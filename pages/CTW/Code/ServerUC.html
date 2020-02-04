@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Benjamin Tan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../assets/css/stylesheet.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="../../../assets/scripts.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../../../assets/jquery.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+
+<body class="subProjectBody" onload="loadSubProjectPage()">
+    <script>
+        AOS.init();
+    </script>
+    <div id="sidenav" class="nav">
+        <span onclick="closeNav()" class="closeButton" id="closeButton">
+            <i class="material-icons">close</i>
+        </span>
+        <span onclick="goHome()" class="homeButton">
+            <i class="material-icons">home</i>
+        </span>
+        <div>
+            <a href="../../../pages/Convergence/index.html" class="navContent">Convergence Resource Center</a>
+            <br>
+            <br>
+            <a href="../../../pages/Milliman/index.html" class="navContent">Milliman</a>
+            <br>
+            <br>
+            <a href="../../../pages/Heroes/index.html" class="navContent">Heroes for Healthcare</a>
+            <br>
+            <br>
+            <a href="../../../pages/CTW/index.html" class="navContent">Code the Way Bootcamp</a>
+            <br>
+            <br>
+            <a href="../../../pages/InProgress/index.html" class="navContent">Current Projects</a>
+            <br>
+            <br>
+            <a href="../../../pages/About/index.html" class="navContent">About Me</a>
+
+        </div>
+    </div>
+
+    <div class="row subProjectTitle" id="header">
+        <div class="col-1">
+            <span onclick="openNav()" class="subOpenButton" id="openButton">
+                <i class="material-icons">menu</i>
+            </span>
+        </div>
+        <div class="col-11">
+            <table class="bubble-table">
+                <td class="align-middle">
+                    <h2 class="h2Subheader">Server Side Unit Conversion</h2>
+                </td>
+            </table>
+        </div>
+    </div>
+    <div class="container-fluid subProjectPage-container" id="page">
+        <div class="row ProjectPage-bubble-row" data-aos="fade-up">
+            <div class="ProjectPage-text-container">
+                <table class="bubble-table">
+                    <td class="align-middle">
+                        <h2 class="h2Subpage">Project Description</h2>
+                    </td>
+                </table>
+            </div>
+            <p>
+                A unit conversion tool using C# and the MVC structure.
+                Using this structure for unit conversion set up the groundwork for using the entire MVC framework and
+                implementing a database.
+            </p>
+        </div>
+        <!--View Code-->
+        <div class="row bubble-row" data-aos="fade-left" id="View" onmouseover='hoverBubble("View")'
+            onmouseout='unhoverBubble("View")' onclick='toggleVisible("ViewCode","View")'>
+            <div class="col-12 bubble-code">
+                <div>
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                                <h2>View</h2>
+                                <p>Unit conversion view written in HTML</p>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code" id="ViewCode">
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                                <pre><xmp>
+
+@model double
+    @{
+    ViewBag.Title = "FootInches";
+    }
+
+    <body>
+        <form action="Convert" method="post">
+            <div class="topnav">
+                <a href="index.html">Feet to Meters</a>
+                <a href="C to F.html">Celsius to Fahrenheit</a>
+                <a href="feetInches.html">Feet to Inches</a>
+                <a href="base.html">Base to Base</a>
+                <a href="centimeterToMeter.html">Centimeter to Meter</a>
+            </div>
+            <div class="header darkBlue">
+                <h1 class="header">Feet to Inches</h1>
+            </div>
+            <div id="app">
+                <div class="row">
+                    <div class="offset-3 col-2 bgBlue shadow-lg p-3 mb-5 rounded">
+                        <div class="col-6">
+                            <label for="Number of feet" class="centerize">Feet:</label>
+                            <input name="feet" class="input lineBoarder" type="number" step="any" />
+                        </div>
+                    </div>
+                    <div class=" offset-2 col-2 bgBlue shadow-lg p-3 mb-5 rounded">
+                        <div class="col-6">
+                            <label for="Number of inches">Inches:</label>
+                            <div class="output lineBoarder">
+                                <p>@Model</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="centerize">
+                    <button v-on:click="feetInches" class="buttonB medBlue">Convert</button>
+                </div>
+            </div>
+        </form>
+    </body>
+
+                                </xmp></pre>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--Controller Code-->
+        <div class="row bubble-row" data-aos="fade-left" id="Controller" onmouseover='hoverBubble("Controller")'
+            onmouseout='unhoverBubble("Controller")' onclick='toggleVisible("ControllerCode","Controller")'>
+            <div class="col-12 bubble-code">
+                <div>
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                                <h2>Controller</h2>
+                                <p>Unit conversion controller written in C#</p>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code" id="ControllerCode">
+                    <table class="bubble-table">
+                        <tbody>
+                            <tr>
+                                <pre><xmp>
+
+using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    namespace ServerConversion.Controllers
+    {
+        public class FootInchesController : Controller
+        {
+        // GET: FootInches
+        public ActionResult FootInches()
+        {
+            return View(viewName: "FootInches", model: 0.0);
+        }
+        public ActionResult Convert(double feet)
+        {
+            double inches = feet * 12;
+            return View(viewName: "FootInches", model: inches);
+            }
+        }
+    }
+
+                                </xmp></pre>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row ProjectPage-bubble-row" data-aos="fade-up">
+            <div class="ProjectPage-text-container">
+                <table class="bubble-table">
+                    <td class="align-middle">
+                        <h2 class="h2Subpage">Project Reflection</h2>
+                    </td>
+                </table>
+            </div>
+            <p>
+                Creating a Unit Conversion tool using the MVC structure was an important step in my Code the Way education.
+                It was my first look into how MVC works and how each of the individual components work.
+                It was also the most difficult portion of the entire summer camp program as it took nearly everything I
+                had learned so far and complicated it as I tried to combine all of the pieces.
+                Using all of the different skills I had learned over the last couple weeks allowed me to see how all of
+                them work together to improve upon each other, using the strengths of each component to create the best
+                product possible.
+            </p>
+        </div>
+        <!--Footer-->
+        <hr noshade="noshade" class="row-divider">
+        <div class="row">
+            <div class="col-3 footer-col">
+                <a href="https://www.linkedin.com/in/bendantan/">
+                    <img src="../../../images/linkedin.png" alt="" class="linkImage">
+                </a>
+            </div>
+            <div class="col-6 footer-col">
+                <a href="../../../pages/About/index.html">
+                    <h4>About Me</h4>
+                </a>
+            </div>
+            <div class="col-3 footer-col">
+                <a href="mailto:BenDanTan@gmail.com">
+                    <img src="../../../images/gmail.png" alt="" class="linkImage">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
