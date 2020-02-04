@@ -52,39 +52,237 @@
             <div class="col-11">
                 <table class="bubble-table">
                     <td class="align-middle">
-                        <h2 class="h2Subheader">Code the Way Bootcamp</h2>
+                        <h2 class="h2Subheader">Gardens</h2>
                     </td>
                 </table>
             </div>
         </div>
         <div class="container-fluid subProjectPage-container" id="page">            
-            <!--Java and C#-->
+            <!--Map Tab-->
             <div class="row bubble-row" data-aos="fade-left" id="Map" onmouseover='hoverBubble("Map")' onmouseout='unhoverBubble("Map")' onclick='toggleVisible("MapCode","Map")'>
                 <div class="col-12 bubble-code">
-                    <table class="bubble-table">
-                        <tbody>
-                            <tr class="align-middle">
-                                <h2>Map Tab</h2>
-                                <p>One of the main pages in the app with a map of all of the gardens</p>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="bubble-table code" id="MapCode">
-                        <tbody>
-                            <tr>
-                                <p>
-                                    function myFunction() {
-                                        var x = document.getElementById("myDIV");
-                                        if (x.style.display === "none") {
-                                        x.style.display = "block";
-                                        } else {
-                                        x.style.display = "none";
-                                        }
-                                    }
-                                </p>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div>
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <h2>Map Tab</h2>
+                                    <p>One of the main pages in the app with a map of all of the gardens</p>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="code" id="MapCode">
+                        <table class="bubble-table">
+                            <tbody>
+                                <tr>
+                                    <pre><xmp>
+
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  GoogleMapController mapController;
+  final Set<Marker> _markers = {};
+  MapType _currentMapType = MapType.normal;
+  LatLng _center = const LatLng(43.077, -89.404);
+  double _mapZoom = 11.0;
+  LatLng _lastMapPosition;
+
+  void _onCameraMove(CameraPosition position) {
+    _lastMapPosition = position.target;
+    _mapZoom = position.zoom;
+  }
+  
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+    _lastMapPosition = _center;
+  }
+
+  void _onMapTypeButtonPressed() {
+    setState(() {
+      _currentMapType = _currentMapType == MapType.normal
+          ? MapType.satellite
+          : MapType.normal;
+    });
+  }
+
+  void _onAddMarkerButtonPressed(String title, String description) {
+    setState(() {
+      _markers.add(Marker(
+      // This marker id can be anything that uniquely identifies each marker.
+      markerId: MarkerId(_lastMapPosition.toString()),
+      position: _lastMapPosition,
+      infoWindow: InfoWindow(
+        title: title,
+        snippet: description,
+      ),
+      icon: BitmapDescriptor.defaultMarker,
+    ));
+    });
+  }
+
+  void _onZoomInButtonPressed() {
+    setState(() {
+      _mapZoom = _mapZoom + 1;
+      mapController.animateCamera(
+        CameraUpdate.newCameraPosition(
+            CameraPosition(
+              target: _lastMapPosition,
+              zoom: _mapZoom = _mapZoom + 0.1
+            )
+          )
+      );
+    });
+  }
+
+  void _onZoomOutButtonPressed() {
+    setState(() {
+      _mapZoom = _mapZoom - 1;
+      mapController.animateCamera(
+        CameraUpdate.newCameraPosition(
+            CameraPosition(
+              target: _lastMapPosition,
+              zoom: _mapZoom = _mapZoom - 0.1
+            )
+          )
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Stack(
+          children: <Widget>[
+            GoogleMap(
+              onMapCreated: _onMapCreated,
+              markers: _markers,
+              mapType: _currentMapType,
+              initialCameraPosition: CameraPosition(
+                target: _center,
+                zoom: _mapZoom,
+              ),
+              onCameraMove: _onCameraMove,
+              
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 32.0),
+                    FloatingActionButton(
+                      onPressed: _onMapTypeButtonPressed,
+                      materialTapTargetSize: MaterialTapTargetSize.padded,
+                      backgroundColor: Colors.green,
+                      child: const Icon(Icons.map, size: 36.0),
+                    ),
+                    SizedBox(height: 16.0),
+                    FloatingActionButton(
+                      materialTapTargetSize: MaterialTapTargetSize.padded,
+                      backgroundColor: Colors.green,
+                      child: const Icon(Icons.add_location, size: 36.0),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              content: Form(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: TextFormField(),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: TextFormField(),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: RaisedButton(
+                                        child: Text("Add Marker"),
+                                        onPressed: () {
+                                          
+                                        }, //onPressed
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            );
+                          } //builder
+                        ); //showDialog
+                      } //onPressed
+                    ),
+                  ]
+                )
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <xmp>[
+                    FloatingActionButton(
+                      onPressed: () {
+                        _onZoomInButtonPressed();
+                      },
+                      child: const Icon(Icons.zoom_in, size: 32.0, color: Colors.black),
+                      shape: RoundedRectangleBorder(),
+                      mini: true,
+                      backgroundColor: Colors.white,
+                    ),
+                    FloatingActionButton(
+                      onPressed: () {
+                        _onZoomOutButtonPressed();
+                      },
+                      child: const Icon(Icons.zoom_out, size: 32.0, color: Colors.black,),
+                      shape: RoundedRectangleBorder(),
+                      mini: true,
+                      backgroundColor: Colors.white,
+                    )
+                  ]
+                )
+              )
+            ),
+            Padding(  //crosshair
+              padding: const EdgeInsets.all(16.0),
+              child: Align(
+                alignment: Alignment.center,
+                child: Opacity(
+                  opacity: 0.6,
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.grey,
+                    size: 64.0,
+                  )
+                )
+              ),
+            )
+          ]
+        )
+      ),
+    );
+  }
+}
+                                    </xmp></pre>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <!--Footer-->

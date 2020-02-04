@@ -89,7 +89,7 @@ function toggleVisible(id, code) {
   var y = document.getElementById(code);
   if (x.style.display === "none") {
     x.style.display = "block";
-    y.style.height = "100vh";
+    y.style.height = "100%";
   } else {
     x.style.display = "none";
     y.style.height = "28vh";
