@@ -74,8 +74,24 @@ function goHome() {
   window.location = "http://bendantan.github.io"
 }
 
-function clickContact (){
+function clickContact() {
   $('.contact-link').css('display','block')
-  window.scrollBy(0,5000);
-  
+  window.scrollBy(0,5000); 
+}
+
+function clickReflection() {
+  $('.reflection').css('display','block')
+  window.scrollBy(0,5000); 
+}
+
+function toggleVisible(id, code) {
+  var x = document.getElementById(id);
+  var y = document.getElementById(code);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    y.style.height = "100%";
+  } else {
+    x.style.display = "none";
+    y.style.height = "28vh";
+  }
 }
