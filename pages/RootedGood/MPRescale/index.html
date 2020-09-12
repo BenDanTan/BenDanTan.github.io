@@ -24,11 +24,11 @@
     </div>
     <script>
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/September12_1.loader.js";
+      var loaderUrl = buildUrl + "/September12_2.loader.js";
       var config = {
-        dataUrl: buildUrl + "/September12_1.data",
-        frameworkUrl: buildUrl + "/September12_1.framework.js",
-        codeUrl: buildUrl + "/September12_1.wasm",
+        dataUrl: buildUrl + "/September12_2.data",
+        frameworkUrl: buildUrl + "/September12_2.framework.js",
+        codeUrl: buildUrl + "/September12_2.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Rooted Good",
         productName: "Mission Possible",
@@ -41,10 +41,13 @@
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
 
-      
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        container.className = "unity-mobile";
+        config.devicePixelRatio = 1;
+      } else {
         canvas.style.width = "80vw";
         canvas.style.height = "80vh";
-      
+      }
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
