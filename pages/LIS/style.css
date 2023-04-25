@@ -1,0 +1,39 @@
+.navContent {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.navBar {
+    /* border: solid 3px green; */
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.header {
+    text-align: center;
+}
+
+body {
+    background-color: #333333;
+    color:white;
+    font-family: 'Rubik', Courier, monospace;
+    font-weight: 250;
+    overflow-x: hidden;
+}
+
+.fullParagraph {
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.selected {
+    font-style: bold;
+    font-size: 2em;
+    font-weight: 500;
+    color:red;
+}
