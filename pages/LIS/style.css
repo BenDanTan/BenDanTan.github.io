@@ -37,3 +37,13 @@ body {
     font-weight: 500;
     color:red;
 }
+
+.halfImage {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    width: 40vw;
+}
+
+.btn-primary {
+    background-color: red;
+}
